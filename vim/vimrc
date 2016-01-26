@@ -1,0 +1,262 @@
+set nocompatible
+filetype off
+
+" Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" vundle
+Plugin 'gmarik/Vundle.vim'
+
+" general
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'majutsushi/tagbar'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'honza/dockerfile.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'chriskempson/base16-vim'
+Plugin 'vim-scripts/TaskList.vim'
+
+" javascript
+Plugin 'mozilla/doctorjs'
+Plugin 'matthewsimo/angular-vim-snippets'
+Plugin 'burnettk/vim-angular'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'marijnh/tern_for_vim'
+
+" go
+Plugin 'fatih/vim-go'
+Plugin 'jstemmer/gotags'
+
+" pgsql
+Plugin 'exu/pgsql.vim'
+
+" css / less
+Plugin 'groenewege/vim-less'
+Plugin 'skammer/vim-css-color'
+Plugin 'hail2u/vim-css3-syntax'
+
+" color schemes
+Plugin 'duythinht/vim-coffee'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'farseer90718/flattr.vim'
+Plugin 'tomasr/molokai'
+Plugin 'lxmzhv/vim'
+Plugin 'flazz/vim-colorschemes'
+
+call vundle#end()
+" Vundle End
+
+syntax on
+filetype plugin indent on
+
+set autoread
+set autoindent
+set background=dark
+set backspace=indent,eol,start
+set colorcolumn=80
+set copyindent
+set cursorline
+set encoding=utf-8
+set noexpandtab
+set formatoptions+=w
+set foldenable
+set foldcolumn=2
+set foldmethod=indent
+set foldlevelstart=99
+set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
+set hidden
+set history=1000
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set listchars=tab:▸\ ,trail:▝,eol:¬
+set nobackup
+set nobomb
+set noerrorbells
+set nomodeline
+set number
+set noswapfile
+set nowrap
+set mouse=a
+set omnifunc=syntaxcomplete#Complete
+set pastetoggle=<F2>
+set relativenumber
+set ruler
+set scrolloff=2
+set shiftwidth=8
+set shiftround
+set showmatch
+set smartcase
+set smarttab
+set showcmd
+set showmode
+set softtabstop=8
+set tabstop=8
+set textwidth=0
+set t_Co=256
+set ttyfast
+set ttymouse=xterm2
+set updatetime=1000
+set undolevels=1000
+set visualbell
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class
+set wildmenu
+set wildmode=list:full
+set wrapmargin=0
+
+" base16
+let base16colorspace=256
+" base16 End
+
+" vim-airline
+"let g:airline_theme = 'base16'
+"let g:airline_theme = 'bubblegum'
+"let g:airline_theme = 'pencil'
+"let g:airline_theme = 'powerlineish'
+"let g:airline_theme = 'murmur'
+"let g:airline_theme = 'raven'
+"let g:airline_theme = 'serene'
+"let g:airline_theme = 'simple'
+let g:airline_theme = 'tomorrow'
+"let g:airline_theme = 'ubaryd'
+"let g:airline_theme = 'understated'
+"let g:airline_theme = 'wombat'
+" vim-airline End
+
+colorscheme base16-default
+"colorscheme base16-tomorrow
+"colorscheme elda
+"colorscheme grb256
+"colorscheme railscasts
+"colorscheme sorcerer
+
+" check if we're using a gui
+if has("gui_running")
+	if has("gui_gtk2")
+		set guifont=Inconsolata\ 12
+	elseif has("gui_macvim")
+		set guifont=Monaco:h12
+	elseif has("gui_win32")
+		set guifont=Consolas:h12:cANSI
+	endif
+else
+	colorscheme railscasts
+	let g:indent_guides_auto_colors = 0
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black    ctermbg=black
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=darkgrey
+endif
+
+function! s:DiffWithSaved()
+	let filetype=&ft
+	diffthis
+	vnew | r # | normal! 1Gdd
+	diffthis
+	exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
+
+nmap <F8> :TagbarToggle<CR>
+nmap \d :DiffSaved<CR>
+nmap \l :set list!<CR>
+nmap \e :NERDTreeToggle<CR>
+nmap \r :so ~/.vimrc<CR>
+
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.pgs set filetype=pgsql
+autocmd BufNewFile,BufRead *.sql set filetype=pgsql
+
+autocmd CursorMovedI *  if pumvisible() == 0|silent! pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
+" vim-indent-guides
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_enable_on_vim_startup = 1
+" vim-indent-guides End
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\v[\/](\.(git|hg|svn))|(node_modules|bower_components)$',
+	\ 'file': '\v\.(exe|so|dll)$',
+	\ 'link': '',
+	\ }
+" CtrlP End
+
+" vim-go
+let g:go_auto_type_info = 0
+
+au FileType go nmap <Leader>gi <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+
+au FileType go nmap <Leader>gdv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gdb <Plug>(go-doc-browser)
+
+au FileType go nmap <leader>gr <Plug>(go-run)
+au FileType go nmap <leader>gb <Plug>(go-build)
+au FileType go nmap <leader>gt <Plug>(go-test)
+
+au FileType go nmap <Leader>gds <Plug>(go-def-split)
+au FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>gdt <Plug>(go-def-tab)
+" vim-go End
+
+" tagbar
+let g:tagbar_type_go = {
+	\ 'ctagstype'	: 'go',
+	\ 'kinds'		: [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+	\ 't' : 'ctype',
+	\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
+" tagbar End
+
+" javascript-libraries-syntax
+let g:used_javascript_libs = 'angularjs,angularui,jquery,requirejs'
+" javascript-libraries-syntax End
+
+" ycm
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+" ycm End
+
+" NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" NERDTree End
