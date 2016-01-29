@@ -3,7 +3,7 @@
 
 for user in ~/Workspace/src/github.com/*
 do
-	if [[ ! $user =~ $GIT_USER_NAME ]]; then
+	if [[ ! $user =~ $GITHUB_USER_NAME ]]; then
 		for project in $user/*
 		do
 			if [ -d $project/.git ]; then
