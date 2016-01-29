@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " general
+Plugin 'ervandew/supertab'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
@@ -253,9 +254,19 @@ let g:used_javascript_libs = 'angularjs,angularui,jquery,requirejs'
 
 " ycm
 let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
+let g:ycm_key_list_select_completion = ['<c-tab>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-s-tab>', '<Up>']
 " ycm End
+
+" supertab
+let g:SuperTabDefaultCompletionType = '<c-tab>'
+" supertab end
+
+" ultisnips
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" ultisnips end
 
 " NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
