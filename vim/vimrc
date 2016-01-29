@@ -125,29 +125,14 @@ let base16colorspace=256
 " base16 End
 
 " vim-airline
-"let g:airline_theme = 'base16'
-"let g:airline_theme = 'bubblegum'
-"let g:airline_theme = 'pencil'
-"let g:airline_theme = 'powerlineish'
-"let g:airline_theme = 'murmur'
-"let g:airline_theme = 'raven'
-"let g:airline_theme = 'serene'
-"let g:airline_theme = 'simple'
-let g:airline_theme = 'tomorrow'
-"let g:airline_theme = 'ubaryd'
-"let g:airline_theme = 'understated'
-"let g:airline_theme = 'wombat'
+let g:airline#extensions#tabline#enabled = 1
 " vim-airline End
-
-colorscheme base16-default
-"colorscheme base16-tomorrow
-"colorscheme elda
-"colorscheme grb256
-"colorscheme railscasts
-"colorscheme sorcerer
 
 " check if we're using a gui
 if has("gui_running")
+	colorscheme base16-default
+	let g:airline#extensions#tmuxline#enabled = 0
+
 	if has("gui_gtk2")
 		set guifont=Inconsolata\ 12
 	elseif has("gui_macvim")
@@ -156,7 +141,8 @@ if has("gui_running")
 		set guifont=Consolas:h12:cANSI
 	endif
 else
-	colorscheme railscasts
+	colorscheme pencil
+	let g:airline_theme = 'tomorrow'
 	let g:indent_guides_auto_colors = 0
 	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black    ctermbg=black
 	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=darkgrey
