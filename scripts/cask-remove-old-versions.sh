@@ -11,9 +11,9 @@ do
 	done
 
 	if [ $i -gt 1 ]; then
-		# reverse sort so NR>2 skips "total" & current version
+		# sort by time so NR>2 skips "total" & current version
 		echo "Removing old cask $folder..."
-		ls -lr $folder | awk -v d="$folder/" '(NR>2) {print d $9}' | xargs -L1 rm -fr
+		ls -lt $folder | awk -v d="$folder/" '(NR>2) {print d $9}' | xargs -L1 rm -fr
 	fi
 
 	let "i=0"
