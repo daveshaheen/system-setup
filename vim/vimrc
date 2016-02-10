@@ -171,6 +171,7 @@ autocmd CursorMovedI *  if pumvisible() == 0|silent! pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " vim-indent-guides
+let g:indent_guides_color_change_percent = 5
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:indent_guides_enable_on_vim_startup = 1
 " vim-indent-guides End
@@ -183,7 +184,7 @@ let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/](\.(git|hg|svn))|(node_modules|bower_components)$',
 	\ 'file': '\v\.(exe|so|dll)$',
 	\ 'link': '',
-	\ }
+\ }
 " CtrlP End
 
 " vim-go
@@ -206,8 +207,8 @@ au FileType go nmap <Leader>gdt <Plug>(go-def-tab)
 
 " tagbar
 let g:tagbar_type_go = {
-	\ 'ctagstype'	: 'go',
-	\ 'kinds'		: [
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
 		\ 'p:package',
 		\ 'i:imports:1',
 		\ 'c:constants',
@@ -222,8 +223,8 @@ let g:tagbar_type_go = {
 	\ ],
 	\ 'sro' : '.',
 	\ 'kind2scope' : {
-	\ 't' : 'ctype',
-	\ 'n' : 'ntype'
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
 	\ },
 	\ 'scope2kind' : {
 		\ 'ctype' : 't',
