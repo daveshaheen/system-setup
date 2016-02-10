@@ -166,6 +166,7 @@ nmap \r :so ~/.vimrc<CR>
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.pgs set filetype=pgsql
 autocmd BufNewFile,BufRead *.sql set filetype=pgsql
+autocmd BufNewFile,BufRead *.scss set filetype=scss.css
 
 autocmd CursorMovedI *  if pumvisible() == 0|silent! pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
