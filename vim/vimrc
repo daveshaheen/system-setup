@@ -85,6 +85,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
+set linebreak
 set listchars=tab:▸\ ,trail:▝,eol:¬
 set nobackup
 set nobomb
@@ -157,11 +158,23 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
+function! s:ToggleWrapNoWrap()
+	if (&wrap == 1)
+		set nowrap
+		echom ":set nowrap"
+	else
+		set wrap
+		echom ":set wrap"
+	endif
+endfunction
+com! ToggleWrapNoWrap call s:ToggleWrapNoWrap()
+
 nmap <F8> :TagbarToggle<CR>
 nmap \d :DiffSaved<CR>
 nmap \l :set list!<CR>
 nmap \e :NERDTreeToggle<CR>
 nmap \r :so ~/.vimrc<CR>
+nmap \w :ToggleWrapNoWrap<CR>
 
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.pgs set filetype=pgsql
