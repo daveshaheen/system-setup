@@ -25,7 +25,7 @@ Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'honza/dockerfile.vim'
+Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'chriskempson/base16-vim'
 Plugin 'vim-scripts/TaskList.vim'
