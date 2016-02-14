@@ -177,14 +177,6 @@ nmap \e :NERDTreeToggle<CR>
 nmap \r :so ~/.vimrc<CR>
 nmap \w :ToggleWrapNoWrap<CR>
 
-autocmd BufNewFile,BufRead *.md set filetype=markdown
-autocmd BufNewFile,BufRead *.pgs set filetype=pgsql
-autocmd BufNewFile,BufRead *.sql set filetype=pgsql
-autocmd BufNewFile,BufRead *.scss set filetype=scss.css
-
-autocmd CursorMovedI *  if pumvisible() == 0|silent! pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
-
 " vim-indent-guides
 let g:indent_guides_color_change_percent = 5
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
@@ -201,24 +193,6 @@ let g:ctrlp_custom_ignore = {
 	\ 'link': '',
 \ }
 " CtrlP End
-
-" vim-go
-let g:go_auto_type_info = 0
-
-au FileType go nmap <Leader>gi <Plug>(go-info)
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-
-au FileType go nmap <Leader>gdv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gdb <Plug>(go-doc-browser)
-
-au FileType go nmap <leader>gr <Plug>(go-run)
-au FileType go nmap <leader>gb <Plug>(go-build)
-au FileType go nmap <leader>gt <Plug>(go-test)
-
-au FileType go nmap <Leader>gds <Plug>(go-def-split)
-au FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>gdt <Plug>(go-def-tab)
-" vim-go End
 
 " tagbar
 let g:tagbar_type_go = {
@@ -270,6 +244,32 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " ultisnips end
 
+" vim-go
+let g:go_auto_type_info = 0
+
+autocmd FileType go nmap <Leader>gi <Plug>(go-info)
+autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
+
+autocmd FileType go nmap <Leader>gdv <Plug>(go-doc-vertical)
+autocmd FileType go nmap <Leader>gdb <Plug>(go-doc-browser)
+
+autocmd FileType go nmap <leader>gr <Plug>(go-run)
+autocmd FileType go nmap <leader>gb <Plug>(go-build)
+autocmd FileType go nmap <leader>gt <Plug>(go-test)
+
+autocmd FileType go nmap <Leader>gds <Plug>(go-def-split)
+autocmd FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
+autocmd FileType go nmap <Leader>gdt <Plug>(go-def-tab)
+" vim-go End
+
 " NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " NERDTree End
+
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.pgs set filetype=pgsql
+autocmd BufNewFile,BufRead *.sql set filetype=pgsql
+autocmd BufNewFile,BufRead *.scss set filetype=scss.css
+
+autocmd CursorMovedI *  if pumvisible() == 0|silent! pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
