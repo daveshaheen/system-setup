@@ -28,8 +28,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'chriskempson/base16-vim'
 Plugin 'vim-scripts/TaskList.vim'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
 
 " javascript
 Plugin 'mozilla/doctorjs'
@@ -58,6 +58,10 @@ Plugin 'farseer90718/flattr.vim'
 Plugin 'tomasr/molokai'
 Plugin 'lxmzhv/vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'chriskempson/base16-vim'
+Plugin 'chriskempson/tomorrow-theme'
+Plugin 'marcopaganini/termschool-vim-theme'
+Plugin 'joshdick/onedark.vim'
 
 call vundle#end()
 " Vundle End
