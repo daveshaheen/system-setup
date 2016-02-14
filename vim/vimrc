@@ -135,14 +135,14 @@ set wrapmargin=0
 let g:airline#extensions#tabline#enabled = 1
 " vim-airline End
 
-colorscheme base16-default
-
 " tmuxline
 let g:tmuxline_powerline_separators = 1
 " tmuxline End
 
 " check if we're using a gui
 if has("gui_running")
+	colorscheme base16-default
+
 	if has("gui_gtk2")
 		set guifont=Inconsolata\ 12
 	elseif has("gui_macvim")
@@ -151,7 +151,11 @@ if has("gui_running")
 		set guifont=Consolas:h12:cANSI
 	endif
 else
+	colorscheme railscasts
+
 	let g:airline_theme = 'bubblegum'
+	let g:indent_guides_auto_colors = 0
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgray
 endif
 
 function! s:DiffWithSaved()
