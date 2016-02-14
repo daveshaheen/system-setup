@@ -110,6 +110,7 @@ set showcmd
 set showmode
 set softtabstop=8
 set tabstop=8
+set term=screen-256color
 set textwidth=0
 set t_Co=256
 set ttyfast
@@ -123,16 +124,17 @@ set wildmode=list:full
 set wrapmargin=0
 
 " base16
-let base16colorspace=256
+"let base16colorspace=256
 " base16 End
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 " vim-airline End
 
+colorscheme base16-default
+
 " check if we're using a gui
 if has("gui_running")
-	colorscheme base16-default
 	let g:airline#extensions#tmuxline#enabled = 0
 
 	if has("gui_gtk2")
