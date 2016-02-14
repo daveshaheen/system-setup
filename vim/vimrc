@@ -133,10 +133,12 @@ let g:airline#extensions#tabline#enabled = 1
 
 colorscheme base16-default
 
+" tmuxline
+let g:tmuxline_powerline_separators = 0
+" tmuxline End
+
 " check if we're using a gui
 if has("gui_running")
-	let g:airline#extensions#tmuxline#enabled = 0
-
 	if has("gui_gtk2")
 		set guifont=Inconsolata\ 12
 	elseif has("gui_macvim")
@@ -145,11 +147,7 @@ if has("gui_running")
 		set guifont=Consolas:h12:cANSI
 	endif
 else
-	colorscheme pencil
-	let g:airline_theme = 'tomorrow'
-	let g:indent_guides_auto_colors = 0
-	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black    ctermbg=black
-	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=darkgrey
+	let g:airline_theme = 'bubblegum'
 endif
 
 function! s:DiffWithSaved()
