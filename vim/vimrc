@@ -138,7 +138,7 @@ let g:airline#extensions#tabline#enabled = 1
 colorscheme base16-default
 
 " tmuxline
-let g:tmuxline_powerline_separators = 0
+let g:tmuxline_powerline_separators = 1
 " tmuxline End
 
 " check if we're using a gui
@@ -146,7 +146,7 @@ if has("gui_running")
 	if has("gui_gtk2")
 		set guifont=Inconsolata\ 12
 	elseif has("gui_macvim")
-		set guifont=Monaco:h12
+		set guifont=Source\ Code\ Pro\ for\ Powerline:h13
 	elseif has("gui_win32")
 		set guifont=Consolas:h12:cANSI
 	endif
