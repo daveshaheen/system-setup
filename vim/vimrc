@@ -115,11 +115,9 @@ set showcmd
 set showmode
 set softtabstop=8
 set tabstop=8
-set term=screen-256color
 set textwidth=0
 set t_Co=256
 set ttyfast
-set ttymouse=xterm2
 set updatetime=1000
 set undolevels=1000
 set visualbell
@@ -127,6 +125,11 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class
 set wildmenu
 set wildmode=list:full
 set wrapmargin=0
+
+if !has('nvim')
+	set term=screen-256color
+	set ttymouse=xterm2
+endif
 
 " base16
 "let base16colorspace=256
