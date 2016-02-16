@@ -275,6 +275,12 @@ autocmd FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
 autocmd FileType go nmap <Leader>gdt <Plug>(go-def-tab)
 " vim-go End
 
+autocmd Filetype css setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
+
 " NERDTree
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " NERDTree End
