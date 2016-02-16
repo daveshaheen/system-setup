@@ -49,7 +49,7 @@ Plugin 'exu/pgsql.vim'
 
 " css / less
 Plugin 'groenewege/vim-less'
-Plugin 'skammer/vim-css-color'
+Plugin 'ap/vim-css-color'
 Plugin 'hail2u/vim-css3-syntax'
 
 " color schemes
