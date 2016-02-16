@@ -239,12 +239,12 @@ let g:used_javascript_libs = 'angularjs,angularui,jquery,requirejs'
 
 " ycm
 let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_key_list_select_completion = ['<c-tab>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-s-tab>', '<Up>']
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 " ycm End
 
 " supertab
-let g:SuperTabDefaultCompletionType = '<c-tab>'
+let g:SuperTabDefaultCompletionType = '<tab>'
 " supertab end
 
 " ultisnips
