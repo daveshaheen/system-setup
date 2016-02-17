@@ -39,6 +39,7 @@ Plugin 'burnettk/vim-angular'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'marijnh/tern_for_vim'
+Plugin 'moll/vim-node'
 
 " go
 Plugin 'fatih/vim-go'
