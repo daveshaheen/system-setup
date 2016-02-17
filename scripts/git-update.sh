@@ -12,6 +12,7 @@ do
 				git fetch --all
 				git reset --hard
 				git clean -df
+				git merge --ff-only
 				git submodule update --init --recursive
 				echo ""
 			fi
@@ -27,6 +28,7 @@ do
 		git fetch --all
 		git reset --hard
 		git clean -df
+		git merge --ff-only
 		git submodule update --init --recursive
 		echo ""
 	fi
