@@ -198,11 +198,13 @@ let g:indent_guides_enable_on_vim_startup = 1
 " vim-indent-guides End
 
 " CtrlP
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_follow_symlinks = 2
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\v[\/](\.(git|hg|svn))|(node_modules|bower_components)$',
+	\ 'dir':  '\v[\/](\.(git|hg|svn))|(node_modules|bower_components|Library)$',
 	\ 'file': '\v\.(exe|so|dll)$',
 	\ 'link': '',
 \ }
