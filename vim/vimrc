@@ -66,7 +66,7 @@ Plugin 'marcopaganini/termschool-vim-theme'
 Plugin 'joshdick/onedark.vim'
 
 call vundle#end()
-" Vundle End
+" Vundle end
 
 syntax on
 filetype plugin indent on
@@ -134,15 +134,15 @@ endif
 
 " base16
 "let base16colorspace=256
-" base16 End
+" base16 end
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
-" vim-airline End
+" vim-airline end
 
 " tmuxline
 let g:tmuxline_powerline_separators = 1
-" tmuxline End
+" tmuxline end
 
 " check if we're using a gui
 if has("gui_running")
@@ -195,7 +195,7 @@ nmap \ct :checktime<CR>
 let g:indent_guides_color_change_percent = 5
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:indent_guides_enable_on_vim_startup = 1
-" vim-indent-guides End
+" vim-indent-guides end
 
 " CtrlP
 let g:ctrlp_show_hidden = 1
@@ -208,7 +208,7 @@ let g:ctrlp_custom_ignore = {
 	\ 'file': '\v\.(exe|so|dll)$',
 	\ 'link': '',
 \ }
-" CtrlP End
+" CtrlP end
 
 " tagbar
 let g:tagbar_type_go = {
@@ -238,17 +238,17 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
-" tagbar End
+" tagbar end
 
 " javascript-libraries-syntax
 let g:used_javascript_libs = 'angularjs,angularui,jquery,requirejs'
-" javascript-libraries-syntax End
+" javascript-libraries-syntax end
 
 " ycm
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-" ycm End
+" ycm end
 
 " supertab
 let g:SuperTabDefaultCompletionType = '<tab>'
@@ -276,18 +276,18 @@ autocmd FileType go nmap <leader>gt <Plug>(go-test)
 autocmd FileType go nmap <Leader>gds <Plug>(go-def-split)
 autocmd FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
 autocmd FileType go nmap <Leader>gdt <Plug>(go-def-tab)
-" vim-go End
+" vim-go end
 
-autocmd Filetype css setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " NERDTree
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" NERDTree End
+" NERDTree end
 
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.pgs set filetype=pgsql
