@@ -3,7 +3,7 @@
 
 set i = 0
 
-for folder in /opt/homebrew-cask/Caskroom/*
+for folder in /usr/local/Caskroom/*
 do
 	for version in $folder/*
 	do
