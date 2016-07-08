@@ -211,6 +211,11 @@ let g:ctrlp_custom_ignore = {
 \ }
 " CtrlP end
 
+" NERDTree
+let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]']
+" NERDTree end
+
+
 " tagbar
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
