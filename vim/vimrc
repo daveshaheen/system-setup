@@ -34,7 +34,7 @@ Plugin 'vim-scripts/TaskList.vim'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 
 " javascript
-Plugin 'mozilla/doctorjs'
+"Plugin 'mozilla/doctorjs'
 Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'burnettk/vim-angular'
 Plugin 'pangloss/vim-javascript'
