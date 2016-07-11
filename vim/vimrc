@@ -250,6 +250,10 @@ let g:tagbar_type_go = {
 let g:used_javascript_libs = 'angularjs,angularui,jquery,requirejs'
 " javascript-libraries-syntax end
 
+" syntastic
+let g:syntastic_javascript_checkers = ['eslint']
+" syntastic end
+
 " ycm
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
