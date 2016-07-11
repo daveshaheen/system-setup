@@ -46,6 +46,9 @@ Plugin 'moll/vim-node'
 Plugin 'fatih/vim-go'
 Plugin 'jstemmer/gotags'
 
+" scala
+Plugin 'derekwyatt/vim-scala'
+
 " pgsql
 Plugin 'exu/pgsql.vim'
 
