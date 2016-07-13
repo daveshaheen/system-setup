@@ -42,6 +42,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'moll/vim-node'
+Plugin 'yannickcr/eslint-plugin-react'
 
 " Pug (Jade)
 Plugin 'digitaltoad/vim-pug'
