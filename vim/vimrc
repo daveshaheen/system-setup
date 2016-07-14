@@ -84,7 +84,7 @@ set autoread
 set autoindent
 set background=dark
 set backspace=indent,eol,start
-set colorcolumn=80
+set colorcolumn=81
 set copyindent
 set cursorline
 set encoding=utf-8
