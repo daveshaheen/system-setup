@@ -43,6 +43,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'moll/vim-node'
 Plugin 'yannickcr/eslint-plugin-react'
+Plugin 'mxw/vim-jsx'
 
 " Pug (Jade)
 Plugin 'digitaltoad/vim-pug'
@@ -274,6 +275,12 @@ let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_javascript_checkers = ['eslint']
 " syntastic end
+
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+" vim-javascript end
 
 " ycm
 let g:ycm_min_num_of_chars_for_completion = 1
