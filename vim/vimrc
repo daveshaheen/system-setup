@@ -33,6 +33,7 @@ Plugin 'nginx/nginx', {'rtp': '/contrib/vim/'}
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-scripts/TaskList.vim'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'mileszs/ack.vim'
 
 " javascript
 "Plugin 'mozilla/doctorjs'
@@ -228,6 +229,11 @@ let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
 let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]']
 " NERDTree end
 
+" the_silver_searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+" the_silver_search end
 
 " tagbar
 let g:tagbar_type_go = {
