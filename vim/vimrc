@@ -45,6 +45,9 @@ Plugin 'moll/vim-node'
 Plugin 'yannickcr/eslint-plugin-react'
 Plugin 'mxw/vim-jsx'
 
+" coffee-script
+Plugin 'kchmck/vim-coffee-script'
+
 " Pug (Jade)
 Plugin 'digitaltoad/vim-pug'
 
