@@ -107,7 +107,7 @@ set ignorecase
 set incsearch
 set laststatus=2
 set linebreak
-set listchars=tab:▸\ ,trail:▝,eol:¬
+set listchars=tab:▸\ ,trail:▝,eol:¬,space:_
 set nobackup
 set nobomb
 set noerrorbells
