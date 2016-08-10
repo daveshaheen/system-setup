@@ -138,6 +138,7 @@ set showcmd
 set showmode
 set softtabstop=8
 set tabstop=8
+set tags=tags;/
 set textwidth=0
 set t_Co=256
 set ttyfast
@@ -287,6 +288,7 @@ let g:used_javascript_libs = 'angularjs,angularui,jquery,requirejs'
 
 " eclim
 let g:EclimFileTypeValidate = 0
+let g:EclimCompletionMethod = 'omnifunc'
 " eclim end
 
 " syntastic
@@ -363,7 +365,12 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-" rainbow parentheses
+" rainbow parentheses end
+
+" vim-scala
+let g:scala_sort_across_groups=1
+let g:scala_first_party_namespaces='\(controllers\|views\|models\|util\|de.\)'
+" vim-scala end
 
 " vim-go
 let g:go_auto_type_info = 0
