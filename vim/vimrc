@@ -235,7 +235,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\v[\/](\.(git|hg|svn))|(node_modules|bower_components|Library)$',
+	\ 'dir':  '\v[\/](\.(git|hg|svn))|(node_modules|bower_components)|(target|bin)$',
 	\ 'file': '\v\.(exe|so|dll)$',
 	\ 'link': '',
 \ }
@@ -243,7 +243,7 @@ let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
 " CtrlP end
 
 " NERDTree
-let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]']
+let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]', 'target$[[dir]]']
 " NERDTree end
 
 " the_silver_searcher
