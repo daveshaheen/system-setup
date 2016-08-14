@@ -252,6 +252,10 @@ if executable('ag')
 endif
 " the_silver_search end
 
+" ack
+let g:ack_autofold_results = 0
+" end ack
+
 " tagbar
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
