@@ -35,6 +35,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-scripts/TaskList.vim'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'mileszs/ack.vim'
+Plugin 'guns/xterm-color-table.vim'
 
 " auto-closers
 "Plugin 'Raimondi/delimitMate'
@@ -46,7 +47,7 @@ Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'burnettk/vim-angular'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
-"Plugin 'ternjs/tern_for_vim'
+Plugin 'ternjs/tern_for_vim'
 Plugin 'moll/vim-node'
 Plugin 'yannickcr/eslint-plugin-react'
 Plugin 'mxw/vim-jsx'
@@ -100,7 +101,7 @@ set backspace=indent,eol,start
 set colorcolumn=81
 set copyindent
 set cursorline
-set encoding=utf-8
+"set encoding=utf-8
 set noexpandtab
 set formatoptions+=w
 set foldenable
@@ -156,7 +157,7 @@ if !has('nvim')
 endif
 
 " base16
-"let base16colorspace=256
+let base16colorspace=256
 " base16 end
 
 " vim-airline
@@ -169,7 +170,7 @@ let g:tmuxline_powerline_separators = 1
 
 " check if we're using a gui
 if has("gui_running")
-	colorscheme base16-default
+	colorscheme base16-default-dark
 
 	if has("gui_gtk2")
 		set guifont=Inconsolata\ 12
@@ -179,11 +180,12 @@ if has("gui_running")
 		set guifont=Consolas:h12:cANSI
 	endif
 else
-	colorscheme railscasts
+	"colorscheme railscasts
+	colorscheme base16-default-dark
 
 	let g:airline_theme = 'bubblegum'
 	let g:indent_guides_auto_colors = 0
-	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=Black
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
 endif
 
 function! s:DiffWithSaved()
@@ -376,6 +378,14 @@ let g:scala_sort_across_groups=1
 let g:scala_first_party_namespaces='\(controllers\|views\|models\|util\|de.\)'
 " vim-scala end
 
+" base16-shell
+if filereadable(expand("~/.vimrc_background"))
+	let base16colorspace=256
+	source ~/.vimrc_background
+endif
+" base16-shell end
+
+
 " vim-go
 let g:go_auto_type_info = 0
 
@@ -385,9 +395,9 @@ autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 autocmd FileType go nmap <Leader>gdv <Plug>(go-doc-vertical)
 autocmd FileType go nmap <Leader>gdb <Plug>(go-doc-browser)
 
-autocmd FileType go nmap <leader>gr <Plug>(go-run)
-autocmd FileType go nmap <leader>gb <Plug>(go-build)
-autocmd FileType go nmap <leader>gt <Plug>(go-test)
+autocmd FileType go nmap <Leader>gr <Plug>(go-run)
+autocmd FileType go nmap <Leader>gb <Plug>(go-build)
+autocmd FileType go nmap <Leader>gt <Plug>(go-test)
 
 autocmd FileType go nmap <Leader>gds <Plug>(go-def-split)
 autocmd FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
