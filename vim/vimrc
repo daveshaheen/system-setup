@@ -35,7 +35,10 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-scripts/TaskList.vim'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'mileszs/ack.vim'
-Plugin 'guns/xterm-color-table.vim'
+
+" session
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 
 " auto-closers
 "Plugin 'Raimondi/delimitMate'
@@ -87,6 +90,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'chriskempson/tomorrow-theme'
 Plugin 'marcopaganini/termschool-vim-theme'
 Plugin 'joshdick/onedark.vim'
+Plugin 'guns/xterm-color-table.vim'
 
 call vundle#end()
 " Vundle end
@@ -385,6 +389,9 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 " base16-shell end
 
+" vim-session
+let g:session_autosave = 'no'
+" vim-session end
 
 " vim-go
 let g:go_auto_type_info = 0
