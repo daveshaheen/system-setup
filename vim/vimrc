@@ -250,6 +250,7 @@ let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
 
 " NERDTree
 let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]', 'target$[[dir]]']
+let NERDTreeWinSize = 50
 " NERDTree end
 
 " the_silver_searcher
