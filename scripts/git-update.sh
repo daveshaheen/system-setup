@@ -9,11 +9,16 @@ do
 			if [ -d $project/.git ]; then
 				echo "git $project"
 				cd $project
-				git fetch --all
-				git reset --hard
-				git clean -df
-				git merge --ff-only
-				git submodule update --init --recursive
+				if [[ $project == *base16-shell* ]]; then
+					git pull --all
+				else
+					#statements
+					git fetch --all
+					git reset --hard
+					git clean -df
+					git merge --ff-only
+					git submodule update --init --recursive
+				fi
 				echo ""
 			fi
 		done
