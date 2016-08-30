@@ -219,9 +219,11 @@ endfunction
 com! ToggleWrapNoWrap call s:ToggleWrapNoWrap()
 
 nmap <F8> :TagbarToggle<CR>
+nmap <Leader>a :Ack
 nmap <Leader>d :DiffSaved<CR>
 nmap <Leader>l :set list!<CR>
 nmap <Leader>e :NERDTreeToggle<CR>
+nmap <Leader>f :NERDTreeFind<CR>
 nmap <Leader>r :so ~/.vimrc<CR>
 nmap <Leader>w :ToggleWrapNoWrap<CR>
 nmap <Leader>ct :checktime<CR>
@@ -257,6 +259,8 @@ let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
 " NERDTree
 let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]', 'target$[[dir]]']
 let NERDTreeWinSize = 50
+
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " NERDTree end
 
 " the_silver_searcher
@@ -328,11 +332,11 @@ let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
 " vim-javascript end
 
-" ycm
+" YouCompleteMe (ycm)
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
-" ycm end
+" YouCompleteMe (ycm) end
 
 " supertab
 let g:SuperTabDefaultCompletionType = '<tab>'
@@ -426,10 +430,6 @@ autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType markdown setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-" NERDTree
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" NERDTree end
 
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.pgs set filetype=pgsql
