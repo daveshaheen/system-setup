@@ -422,11 +422,15 @@ autocmd FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
 autocmd FileType go nmap <Leader>gdt <Plug>(go-def-tab)
 " vim-go end
 
+autocmd FileType javascript.jsx nmap <Leader>jf :silent !eslint --fix %<CR>
+
 autocmd FileType coffee setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript.jsx setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType markdown setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
