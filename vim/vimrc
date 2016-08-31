@@ -327,6 +327,10 @@ let g:EclimCompletionMethod = 'omnifunc'
 "let g:syntastic_javascript_eslint_exec = ['eslint_d']
 " syntastic end
 
+" neomake
+autocmd! BufEnter,BufWritePost * Neomake
+" neomake end
+
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
