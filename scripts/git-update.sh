@@ -24,17 +24,3 @@ do
 		done
 	fi
 done
-
-for bundle in ~/.vim/bundle/*
-do
-	if [ -d $bundle/.git/ ]; then
-		echo "git $bundle"
-		cd $bundle
-		git fetch --all
-		git reset --hard
-		git clean -df
-		git merge --ff-only
-		git submodule update --init --recursive
-		echo ""
-	fi
-done
