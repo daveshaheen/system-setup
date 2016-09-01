@@ -222,12 +222,14 @@ com! ToggleWrapNoWrap call s:ToggleWrapNoWrap()
 nmap <F8> :TagbarToggle<CR>
 nmap <Leader>a :Ack
 nmap <Leader>d :DiffSaved<CR>
-nmap <Leader>l :set list!<CR>
+nmap <Leader>c :checktime<CR>
 nmap <Leader>e :NERDTreeToggle<CR>
 nmap <Leader>f :NERDTreeFind<CR>
+nmap <Leader>l :set list!<CR>
+nmap <Leader>o :OpenSession
 nmap <Leader>r :so ~/.vimrc<CR>
+nmap <Leader>s :SaveSession
 nmap <Leader>w :ToggleWrapNoWrap<CR>
-nmap <Leader>ct :checktime<CR>
 
 " vim-indent-guides
 let g:indent_guides_color_change_percent = 5
