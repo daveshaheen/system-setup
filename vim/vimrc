@@ -309,7 +309,7 @@ let g:used_javascript_libs = 'angularjs,angularui,jquery,requirejs'
 " javascript-libraries-syntax end
 
 " eclim
-let g:EclimFileTypeValidate = 0
+autocmd FileType scala let g:EclimFileTypeValidate = 1
 let g:EclimCompletionMethod = 'omnifunc'
 " eclim end
 
