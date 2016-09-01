@@ -74,6 +74,7 @@ Plug 'jstemmer/gotags'
 
 " scala
 Plug 'derekwyatt/vim-scala'
+Plug 'ensime/ensime-vim'
 
 " pgsql
 Plug 'exu/pgsql.vim'
@@ -311,8 +312,10 @@ let g:used_javascript_libs = 'angularjs,angularui,jquery,requirejs'
 " javascript-libraries-syntax end
 
 " eclim
-autocmd FileType scala let g:EclimFileTypeValidate = 1
+let g:EclimFileTypeValidate = 0
 let g:EclimCompletionMethod = 'omnifunc'
+
+autocmd FileType scala let g:EclimFileTypeValidate = 1
 " eclim end
 
 " syntastic
@@ -328,10 +331,6 @@ let g:EclimCompletionMethod = 'omnifunc'
 "let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_javascript_eslint_exec = ['eslint_d']
 " syntastic end
-
-" neomake
-autocmd! BufEnter,BufWritePost * Neomake
-" neomake end
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
@@ -429,7 +428,15 @@ autocmd FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
 autocmd FileType go nmap <Leader>gdt <Plug>(go-def-tab)
 " vim-go end
 
+" neomake
+autocmd! BufEnter,BufWritePost * Neomake
+" neomake end
+
 autocmd FileType javascript.jsx nmap <Leader>jf :silent !eslint --fix %<CR>
+
+autocmd FileType scala nmap <Leader>sd :EnDeclaration<CR>
+autocmd FileType scala nmap <Leader>st :EnTypeCheck<CR>
+autocmd FileType scala nmap <Leader>sf :EnFormatSource<CR>
 
 autocmd FileType coffee setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
