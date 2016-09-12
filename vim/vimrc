@@ -1,352 +1,215 @@
-set nocompatible
-filetype off
+" functions
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --all
+  endif
+endfunction
 
-" Vundle
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
+function! ExpandSnippetOrCarriageReturn()
+  let snippet = UltiSnips#ExpandSnippetOrJump()
+  if g:ulti_expand_or_jump_res > 0
+    return snippet
+  else
+    return "\<CR>"
+  endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
 
-" vundle
-"Plugin 'gmarik/Vundle.vim'
 
-"call vundle#end()
-" Vundle end
-
-" vim-plug
+" vim-plug begin loading plugins
 call plug#begin('~/.vim/plugged')
 
-" general
-Plug 'ervandew/supertab'
-Plug 'Valloric/YouCompleteMe'
-Plug 'neomake/neomake'
-"Plug 'scrooloose/syntastic'
+" xolox plugins
+Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'  " session
+Plug 'xolox/vim-notes' | Plug 'xolox/vim-misc'    " notes
+Plug 'xolox/vim-easytags' | Plug 'xolox/vim-misc' " easytags
+
+" tpope plugins
+Plug 'tpope/vim-fugitive'    " git wrapper
+Plug 'tpope/vim-repeat'      " allows repeating a plugin map
+Plug 'tpope/vim-surround'    " surroundings
+Plug 'tpope/vim-speeddating' " easily increment dates
+Plug 'tpope/vim-unimpaired'  " handy keymaps
+Plug 'tpope/vim-vinegar'     " netrw enhancer
+
+" file explorer
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-speeddating'
-Plug 'majutsushi/tagbar'
-Plug 'edkolev/tmuxline.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
-Plug 'nginx/nginx', {'rtp': '/contrib/vim/'}
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'vim-scripts/TaskList.vim'
-Plug 'Matt-Deacalion/vim-systemd-syntax'
-Plug 'mileszs/ack.vim'
-
-" session
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
-
-" auto-closers
-"Plug 'Raimondi/delimitMate'
-Plug 'jiangmiao/auto-pairs'
-
-" javascript
-"Plug 'mozilla/doctorjs'
-Plug 'matthewsimo/angular-vim-snippets'
-Plug 'burnettk/vim-angular'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'ternjs/tern_for_vim'
-Plug 'moll/vim-node'
-Plug 'yannickcr/eslint-plugin-react'
-Plug 'mxw/vim-jsx'
-
-" coffee-script
-Plug 'kchmck/vim-coffee-script'
-
-" Pug (Jade)
-Plug 'digitaltoad/vim-pug'
-
-" go
-Plug 'fatih/vim-go'
-Plug 'jstemmer/gotags'
-
-" scala
-Plug 'derekwyatt/vim-scala'
-Plug 'ensime/ensime-vim'
-
-" pgsql
-Plug 'exu/pgsql.vim'
-
-" css / less
-Plug 'groenewege/vim-less'
-Plug 'ap/vim-css-color'
-Plug 'hail2u/vim-css3-syntax'
-
-" rainbow parentheses
-Plug 'kien/rainbow_parentheses.vim'
-
-" color schemes
-Plug 'duythinht/vim-coffee'
-Plug 'reedes/vim-colors-pencil'
-Plug 'farseer90718/flattr.vim'
-Plug 'tomasr/molokai'
-Plug 'lxmzhv/vim'
-Plug 'flazz/vim-colorschemes'
-Plug 'chriskempson/base16-vim'
-Plug 'chriskempson/tomorrow-theme'
-Plug 'marcopaganini/termschool-vim-theme'
-Plug 'joshdick/onedark.vim'
-Plug 'guns/xterm-color-table.vim'
-
-call plug#end()
-" vim-plug end
-
-syntax on
-filetype plugin indent on
-
-set autoread
-set autoindent
-set background=dark
-set backspace=indent,eol,start
-set colorcolumn=81
-set copyindent
-set cursorline
-"set encoding=utf-8
-set noexpandtab
-set formatoptions+=w
-set foldenable
-set foldcolumn=2
-set foldmethod=indent
-set foldlevelstart=99
-set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
-set hidden
-set history=1000
-set hlsearch
-set ignorecase
-set incsearch
-set laststatus=2
-set linebreak
-set listchars=tab:▸\ ,trail:▝,eol:¬,space:_
-set nobackup
-set nobomb
-set noerrorbells
-set nomodeline
-set number
-set noswapfile
-set nowrap
-set mouse=a
-set omnifunc=syntaxcomplete#Complete
-set pastetoggle=<F2>
-set relativenumber
-set ruler
-set scrolloff=2
-set shiftwidth=8
-set shiftround
-set showmatch
-set smartcase
-set smarttab
-set showcmd
-set showmode
-set softtabstop=8
-set tabstop=8
-set tags=tags;/
-set textwidth=0
-set t_Co=256
-set ttyfast
-set updatetime=1000
-set undolevels=1000
-set visualbell
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class
-set wildmenu
-set wildmode=list:full
-set wrapmargin=0
-
-if !has('nvim')
-	set term=xterm-256color
-	set ttymouse=xterm2
-endif
-
-" base16
-let base16colorspace=256
-" base16 end
-
-" vim-airline
-let g:airline#extensions#tabline#enabled = 1
-" vim-airline end
-
-" tmuxline
-let g:tmuxline_powerline_separators = 1
-" tmuxline end
-
-" check if we're using a gui
-if has("gui_running")
-	colorscheme base16-default-dark
-
-	if has("gui_gtk2")
-		set guifont=Inconsolata\ 12
-	elseif has("gui_macvim")
-		set guifont=Source\ Code\ Pro\ for\ Powerline:h12
-	elseif has("gui_win32")
-		set guifont=Consolas:h12:cANSI
-	endif
-else
-	"colorscheme railscasts
-	colorscheme base16-default-dark
-
-	let g:airline_theme = 'bubblegum'
-	let g:indent_guides_auto_colors = 0
-	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
-endif
-
-function! s:DiffWithSaved()
-	let filetype=&ft
-	diffthis
-	vnew | r # | normal! 1Gdd
-	diffthis
-	exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-com! DiffSaved call s:DiffWithSaved()
-
-function! s:ToggleWrapNoWrap()
-	if (&wrap == 1)
-		set nowrap
-		echom ":set nowrap"
-	else
-		set wrap
-		echom ":set wrap"
-	endif
-endfunction
-com! ToggleWrapNoWrap call s:ToggleWrapNoWrap()
-
-nmap <F8> :TagbarToggle<CR>
-nmap <Leader>a :Ack
-nmap <Leader>d :DiffSaved<CR>
-nmap <Leader>c :checktime<CR>
-nmap <Leader>e :NERDTreeToggle<CR>
-nmap <Leader>f :NERDTreeFind<CR>
-nmap <Leader>l :set list!<CR>
-nmap <Leader>o :OpenSession
-nmap <Leader>r :so ~/.vimrc<CR>
-nmap <Leader>s :SaveSession
-nmap <Leader>w :ToggleWrapNoWrap<CR>
-
-" vim-indent-guides
-let g:indent_guides_color_change_percent = 5
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-let g:indent_guides_enable_on_vim_startup = 1
-" vim-indent-guides end
-
-" vim-gitgutter
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
-
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
-" vim-gitgutter end
-
-" CtrlP
-let g:ctrlp_show_hidden = 0
-let g:ctrlp_follow_symlinks = 2
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPLastMode'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\v[\/](\.(git|hg|svn))|(node_modules|bower_components)|(target|bin)$',
-	\ 'file': '\v\.(exe|so|dll)$',
-	\ 'link': '',
-\ }
-let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
-" CtrlP end
-
-" NERDTree
-let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]', 'target$[[dir]]']
-let NERDTreeWinSize = 50
-
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" NERDTree end
-
-" the_silver_searcher
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-" the_silver_search end
-
-" ack
-let g:ack_autofold_results = 0
-" end ack
 
 " tagbar
-let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-\ }
-" tagbar end
+Plug 'majutsushi/tagbar'
 
-" javascript-libraries-syntax
-let g:used_javascript_libs = 'angularjs,angularui,jquery,requirejs'
-" javascript-libraries-syntax end
+" snippets
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-" eclim
-let g:EclimFileTypeValidate = 0
-let g:EclimCompletionMethod = 'omnifunc'
+" code completion
+Plug 'ervandew/supertab' " for tab completions
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'neomake/neomake'   " linting
+Plug 'mattn/emmet-vim'   " html & css toolkit
 
-autocmd FileType scala let g:EclimFileTypeValidate = 1
-" eclim end
+" comments
+Plug 'scrooloose/nerdcommenter'
 
-" syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+" closers
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-scripts/closetag.vim'
 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 1
-"let g:syntastic_error_symbol = "✗"
-"let g:syntastic_warning_symbol = "⚠"
-"let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_javascript_eslint_exec = ['eslint_d']
-" syntastic end
+" fuzzy finder
+Plug 'ctrlpvim/ctrlp.vim'
 
-" vim-javascript
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow = 1
-" vim-javascript end
+" ack
+Plug 'mileszs/ack.vim'
+
+" colors
+Plug 'chriskempson/base16-vim'
+
+" indent guides
+Plug 'nathanaelkane/vim-indent-guides'
+
+" git gutter
+Plug 'airblade/vim-gitgutter'
+
+" status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+
+" syntax and stuff
+Plug 'sheerun/vim-polyglot' " 70+ language packages
+Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
+Plug 'ensime/ensime-vim'    " scala and java
+
+call plug#end()
+
+
+" general settings
+
+" highlight group Normal color settings
+highlight Normal ctermfg=7 ctermbg=0 guifg=#d8d8d8 guibg=#181818
+
+" tell vim the 'background' is dark. this doesn't actually set the background
+set background=dark
+
+" set base16colorspace to 256 for chriskempson/base16-vim
+let base16colorspace=256
+
+" if ~/.vimrc_background exists then run the file
+if filereadable(expand("~/.vimrc_background"))
+  source ~/.vimrc_background
+endif
+
+" set colorscheme
+colorscheme base16-default-dark
+
+" :syntax enable => turning on syntax highlighting
+syntax enable
+
+" :filetype on => turns filetype detction on
+" :filetype plugin => on loads plugin files for specific filetypes
+" :filetype indent on => loads indent files for specific filetypes
+filetype plugin indent on
+
+" reload files changed outside of vim
+set autoread
+
+" set backspace to work how you'd normally expect it to
+set backspace=indent,eol,start
+
+" display settings
+set colorcolumn=81 " highlight the listed column
+set cursorline     " highlight the line the cursor is on
+set scrolloff=2    " minimum number of characters above and below the cursor
+set showmatch      " when a bracket is inserted briefly jump to a matching one
+
+" tab settings
+set expandtab     " use spaces instead of tabs
+set shiftwidth=2  " hitting tab moves 2 spaces
+set tabstop=2     " number of spaces that a tab counts for
+set softtabstop=2 " number of spaces that a tab counts for when editing
+set smarttab      " insert blanks based on sw, tbs, or sts
+
+" indent settings
+set autoindent " copy indent from current line when starting a new one
+set copyindent " keep source structure when copying
+set shiftround " round indent to multiples of shiftwidth
+
+" fold settings
+set foldenable        " when off all folds are open. when on use foldlevelstart
+set foldcolumn=2      " set fold column width
+set foldmethod=indent " lines with equal indent form a fold
+set foldlevelstart=99 " start with no folds closed
+set foldopen=all      " open fold on all commands
+
+" number of lines that are remembered
+set history=1000
+
+" search
+set hlsearch   " highlight search results
+set incsearch  " search and highlight while typing
+set ignorecase " ignore case when searching
+set smartcase  " override ignorecase only when a search includes uppercase chars
+
+" wrap
+set linebreak    " wrap long lines when wrap is turned on
+set nowrap       " turn wrap off
+set wrapmargin=0 " number of chars from the right where wrapping starts
+
+" line characters
+set listchars=tab:▸\ ,trail:▝,eol:¬,space:_
+
+" line numbers
+set number         " show line numbers
+set relativenumber " show line number relative to the cursor
+set ruler          " show the line and column number of the cursor position
+
+" toggles paste mode
+set pastetoggle=<F2>
+
+" misc
+set nobackup     " don't keep a backup
+set nobomb       " no BOM (Byte Order Mark)
+set noerrorbells " no beep
+set nomodeline   " don't use modelines see help
+set noswapfile   " don't keep a swap file. text only kept in memory
+set visualbell   " use a visual bell instead of beeping
+set tags=tags;/  " for ctags
+
+" wild settings
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class
+set wildmode=list:full
+
+" turn on omnifunction
+set omnifunc=syntaxcomplete#Complete
+
+" normal mode leader key mappings
+nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>e :NERDTreeToggle<CR>
+nnoremap <Leader>ev :vs $MYVIMRC<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
+nnoremap <Leader>jf :silent !eslint --fix %<CR>
+nnoremap <Leader>l :set list!<CR>
+nnoremap <Leader>nm :Neomake<CR>
+nnoremap <Leader>pi :PlugInstall<CR>
+nnoremap <Leader>pu :PlugUpdate<CR>
+nnoremap <Leader>pc :PlugClean<CR>
+nnoremap <Leader>sv :so $MYVIMRC<CR>
+nnoremap <Leader>w :set wrap!<CR>
+
+
+" global settings
 
 " YouCompleteMe (ycm)
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
-" YouCompleteMe (ycm) end
 
 " supertab
 let g:SuperTabDefaultCompletionType = '<tab>'
-" supertab end
 
 " ultisnips
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
@@ -354,105 +217,72 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 let g:UltiSnipsExpandTrigger = "<nop>"
 let g:ulti_expand_or_jump_res = 0
-function! ExpandSnippetOrCarriageReturn()
-	let snippet = UltiSnips#ExpandSnippetOrJump()
-	if g:ulti_expand_or_jump_res > 0
-		return snippet
-	else
-		return "\<CR>"
-	endif
-endfunction
-inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
-" ultisnips end
 
-" rainbow parentheses
-let g:rbpt_colorpairs = [
-	\ ['brown',       'RoyalBlue3'],
-	\ ['Darkblue',    'SeaGreen3'],
-	\ ['darkgray',    'DarkOrchid3'],
-	\ ['darkgreen',   'firebrick3'],
-	\ ['darkcyan',    'RoyalBlue3'],
-	\ ['darkred',     'SeaGreen3'],
-	\ ['darkmagenta', 'DarkOrchid3'],
-	\ ['brown',       'firebrick3'],
-	\ ['gray',        'RoyalBlue3'],
-	\ ['black',       'SeaGreen3'],
-	\ ['darkmagenta', 'DarkOrchid3'],
-	\ ['Darkblue',    'firebrick3'],
-	\ ['darkgreen',   'RoyalBlue3'],
-	\ ['darkcyan',    'SeaGreen3'],
-	\ ['darkred',     'DarkOrchid3'],
-	\ ['red',         'firebrick3'],
-	\ ]
+" easytags
+let g:easytags_async = 1
 
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
+" tagbar
+nnoremap <F8> :TagbarToggle<CR>
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-" rainbow parentheses end
+" ctrlp
+let g:ctrlp_show_hidden = 0
+let g:ctrlp_follow_symlinks = 2
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPLastMode'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/](\.(git|hg|svn))|(node_modules|bower_components)|(target|bin)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ 'link': '',
+      \ }
+let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
 
-" vim-scala
-let g:scala_sort_across_groups=1
-let g:scala_first_party_namespaces='\(controllers\|views\|models\|util\|de.\)'
-" vim-scala end
-
-" base16-shell
-if filereadable(expand("~/.vimrc_background"))
-	let base16colorspace=256
-	source ~/.vimrc_background
+" ack (the_silver_searcher)
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
 endif
-" base16-shell end
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'base16'
+
+" tmuxline
+let g:tmuxline_powerline_separators = 1
+
+" vim-indent-guides
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_color_change_percent = 5
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+highlight IndentGuidesEven ctermbg=236
+
+" vim-gitgutter
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
 
 " vim-session
-let g:session_autosave = 'no'
-" vim-session end
+let g:session_autosave = 'yes'
+
+" polyglot
+let g:polyglot_disabled = ['go']
 
 " vim-go
-let g:go_auto_type_info = 0
+let g:go_auto_type_info = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_types = 1
 
-autocmd FileType go nmap <Leader>gi <Plug>(go-info)
-autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
+" NERDTree
+let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]', 'target$[[dir]]']
+let NERDTreeWinSize = 50
 
-autocmd FileType go nmap <Leader>gdv <Plug>(go-doc-vertical)
-autocmd FileType go nmap <Leader>gdb <Plug>(go-doc-browser)
+autocmd! BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-autocmd FileType go nmap <Leader>gr <Plug>(go-run)
-autocmd FileType go nmap <Leader>gb <Plug>(go-build)
-autocmd FileType go nmap <Leader>gt <Plug>(go-test)
+autocmd! BufWritePost *.js,*.jsx execute "silent !eslint --fix " . bufname("%")
+autocmd! BufWritePost * silent Neomake
 
-autocmd FileType go nmap <Leader>gds <Plug>(go-def-split)
-autocmd FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
-autocmd FileType go nmap <Leader>gdt <Plug>(go-def-tab)
-" vim-go end
-
-" neomake
-autocmd! BufEnter,BufWritePost * Neomake
-" neomake end
-
-autocmd FileType javascript.jsx nmap <Leader>jf :silent !eslint --fix %<CR>
-
-autocmd FileType scala nmap <Leader>sd :EnDeclaration<CR>
-autocmd FileType scala nmap <Leader>st :EnTypeCheck<CR>
-autocmd FileType scala nmap <Leader>sf :EnFormatSource<CR>
-
-autocmd FileType coffee setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType javascript.jsx setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType markdown setlocal ts=4 sts=4 sw=4 expandtab
-autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-autocmd BufNewFile,BufRead *.md set filetype=markdown
-autocmd BufNewFile,BufRead *.pgs set filetype=pgsql
-autocmd BufNewFile,BufRead *.sql set filetype=pgsql
-autocmd BufNewFile,BufRead *.scss set filetype=scss.css
-
-autocmd CursorMovedI *  if pumvisible() == 0|silent! pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
+autocmd! CursorMovedI *  if pumvisible() == 0|silent! pclose|endif
+autocmd! InsertLeave * if pumvisible() == 0|silent! pclose|endif
