@@ -268,6 +268,7 @@ let g:gitgutter_eager = 0
 
 " vim-session
 let g:session_autosave = 'yes'
+let g:session_autoload = 'no'
 
 " vim-ragtag
 let g:ragtag_global_maps = 1
