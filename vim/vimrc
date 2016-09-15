@@ -30,6 +30,7 @@ Plug 'xolox/vim-easytags' | Plug 'xolox/vim-misc' " easytags
 
 " tpope plugins
 Plug 'tpope/vim-fugitive'    " git wrapper
+Plug 'tpope/vim-ragtag'      " used for tag closing
 Plug 'tpope/vim-repeat'      " allows repeating a plugin map
 Plug 'tpope/vim-surround'    " surroundings
 Plug 'tpope/vim-speeddating' " easily increment dates
@@ -57,7 +58,6 @@ Plug 'scrooloose/nerdcommenter'
 
 " closers
 Plug 'jiangmiao/auto-pairs'
-Plug 'vim-scripts/closetag.vim'
 
 " fuzzy finder
 Plug 'ctrlpvim/ctrlp.vim'
@@ -81,8 +81,11 @@ Plug 'edkolev/tmuxline.vim'
 
 " syntax and stuff
 Plug 'sheerun/vim-polyglot' " 70+ language packages
-Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' } " golang
 Plug 'ensime/ensime-vim'    " scala and java
+Plug 'pangloss/vim-javascript' " javascript
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' } " javascript
+Plug 'mxw/vim-jsx' " jsx
 
 call plug#end()
 
@@ -143,7 +146,7 @@ set foldenable        " when off all folds are open. when on use foldlevelstart
 set foldcolumn=2      " set fold column width
 set foldmethod=indent " lines with equal indent form a fold
 set foldlevelstart=99 " start with no folds closed
-set foldopen=all      " open fold on all commands
+set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo " open fold on all commands
 
 " number of lines that are remembered
 set history=1000
@@ -171,6 +174,7 @@ set ruler          " show the line and column number of the cursor position
 set pastetoggle=<F2>
 
 " misc
+set hidden       " keep buffer changes when hidden
 set nobackup     " don't keep a backup
 set nobomb       " no BOM (Byte Order Mark)
 set noerrorbells " no beep
@@ -198,6 +202,7 @@ nnoremap <Leader>pi :PlugInstall<CR>
 nnoremap <Leader>pu :PlugUpdate<CR>
 nnoremap <Leader>pc :PlugClean<CR>
 nnoremap <Leader>sv :so $MYVIMRC<CR>
+nnoremap <Leader>t :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <Leader>w :set wrap!<CR>
 
 
@@ -264,8 +269,15 @@ let g:gitgutter_eager = 0
 " vim-session
 let g:session_autosave = 'yes'
 
+" vim-ragtag
+let g:ragtag_global_maps = 1
+
 " polyglot
-let g:polyglot_disabled = ['go']
+let g:polyglot_disabled = ['go', 'javascript', 'jsx']
+
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
 
 " vim-go
 let g:go_auto_type_info = 1
