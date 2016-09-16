@@ -139,7 +139,7 @@ set smarttab      " insert blanks based on sw, tbs, or sts
 " indent settings
 set autoindent " copy indent from current line when starting a new one
 set copyindent " keep source structure when copying
-set shiftround " round indent to multiples of shiftwidth
+"set shiftround " round indent to multiples of shiftwidth
 
 " fold settings
 set foldenable        " when off all folds are open. when on use foldlevelstart
@@ -208,26 +208,15 @@ nnoremap <Leader>w :set wrap!<CR>
 
 " global settings
 
-" YouCompleteMe (ycm)
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
+" ack (the_silver_searcher)
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
-" supertab
-let g:SuperTabDefaultCompletionType = '<tab>'
-
-" ultisnips
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-let g:UltiSnipsExpandTrigger = "<nop>"
-let g:ulti_expand_or_jump_res = 0
-
-" easytags
-let g:easytags_async = 1
-
-" tagbar
-nnoremap <F8> :TagbarToggle<CR>
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'base16'
 
 " ctrlp
 let g:ctrlp_show_hidden = 0
@@ -242,18 +231,35 @@ let g:ctrlp_custom_ignore = {
       \ }
 let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
 
-" ack (the_silver_searcher)
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+" easytags
+let g:easytags_async = 1
 
-" airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16'
+" eclim
+let g:EclimCompletionMethod = 'omnifunc'
+
+" NERDTree
+let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]', 'target$[[dir]]']
+let NERDTreeWinSize = 50
+
+" Neomake
+let g:neomake_open_list = 2
+let g:neomake_verbose = 1
+
+" supertab
+let g:SuperTabDefaultCompletionType = '<tab>'
+
+" tagbar
+nnoremap <F8> :TagbarToggle<CR>
 
 " tmuxline
 let g:tmuxline_powerline_separators = 1
+
+" ultisnips
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
 
 " vim-indent-guides
 let g:indent_guides_auto_colors = 0
@@ -288,9 +294,10 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_types = 1
 
-" NERDTree
-let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]', 'target$[[dir]]']
-let NERDTreeWinSize = 50
+" YouCompleteMe (ycm)
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
 
 autocmd! BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
