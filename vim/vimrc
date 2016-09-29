@@ -139,7 +139,7 @@ set smarttab      " insert blanks based on sw, tbs, or sts
 " indent settings
 set autoindent " copy indent from current line when starting a new one
 set copyindent " keep source structure when copying
-"set shiftround " round indent to multiples of shiftwidth
+set shiftround " round indent to multiples of shiftwidth
 
 " fold settings
 set foldenable        " when off all folds are open. when on use foldlevelstart
