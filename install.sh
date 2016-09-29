@@ -7,6 +7,13 @@ else
 	echo "ln: ~/.zpreztorc: file exists; remove and re-run."
 fi
 
+if [ ! -f ~/.zshrc ]; then
+  ln -s $(pwd)/prezto/zshrc ~/.zshrc
+	echo "linked ~/.zshrc"
+else
+	echo "ln: ~/.zshrc: file exists; remove and re-run."
+fi
+
 if [ ! -f ~/.tmux.conf ]; then
 	ln -s $(pwd)/tmux/tmux.conf ~/.tmux.conf
 	echo "linked ~/.tmux.conf"

@@ -1,0 +1,79 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+setopt appendhistory autocd beep extendedglob nomatch notify
+
+autoload -Uz compinit
+compinit
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+# Base16 Shell
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+# Ensure user-installed binaries take precedence
+export ANDROID_HOME=/usr/local/opt/android-sdk
+export BITBUCKET_PATH=$HOME/Workspace/src/bitbucket.org
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="$HOME/.docker/machine/machines/default"
+export DOCKER_MACHINE_NAME="default"
+export CLICOLOR=1
+export ECLIPSE_HOME=/Applications/Eclipse.app/Contents/Eclipse
+export EDITOR=vim
+export GDK_PIXBUF_MODULEDIR="/usr/local/lib/gdk-pixbuf-2.0/2.10.0/loaders"
+export GITHUB_USER_NAME="daveshaheen"
+export GITHUB_PATH=$HOME/Workspace/src/github.com
+export GOBIN=/usr/local/go/bin
+export GOPATH=$HOME/Workspace
+export GOROOT=/usr/local/go
+export GOSERVERNAME=daveshaheen
+export HELPDIR=/usr/local/share/zsh/help
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export KEYTIMEOUT=2
+export LC_ALL=en_US.UTF-8
+export MONO_GAC_PREFIX="/usr/local"
+export MONO_MANAGED_WATCHER=disabled
+export NODE_PATH='/usr/local/lib/jsctags'
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:$GOROOT/bin:$GOPATH/bin:/usr/local/opt/ruby/bin:/usr/bin:/bin:/usr/sbin:/sbin:
+export PGDATA=/usr/local/var/postgres
+export VISUAL=vim
+# export DYLD_INSERT_LIBRARIES=$HOME/source/hoard/src/libhoard.dylib
+
+source $HOME/.config/zsh/private.zsh
+
+# vi mode
+bindkey -v
+
+#unalias run-help
+[[ -e $(alias run-help) ]] && unalias run-help
+autoload run-help
+
+unalias gl
+alias gl="git log --pretty=format:\"%C(Blue)%an <%ae> %C(reset)%cd %C(auto)%h%d %b%s\" --date=iso --graph --all"
+
+alias guard="bundle exec guard"
+
+# tabtab source for yo package
+# uninstall by removing these lines or running `tabtab uninstall yo`
+[[ -f /usr/local/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh ]] && . /usr/local/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh
+
+source $HOME/.dnx/dnvm/dnvm.sh
+source $HOME/.bin/tmuxinator.zsh
+source $HOME/.config/zsh/zsh-nvm/zsh-nvm.plugin.zsh
+source $HOME/.config/zsh/zsh-better-npm-completion/zsh-better-npm-completion.plugin.zsh
+
+nvm use default
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
