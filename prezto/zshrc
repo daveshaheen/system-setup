@@ -69,7 +69,6 @@ alias guard="bundle exec guard"
 # uninstall by removing these lines or running `tabtab uninstall yo`
 [[ -f /usr/local/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh ]] && . /usr/local/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh
 
-source $HOME/.dnx/dnvm/dnvm.sh
 source $HOME/.bin/tmuxinator.zsh
 source $HOME/.config/zsh/zsh-nvm/zsh-nvm.plugin.zsh
 source $HOME/.config/zsh/zsh-better-npm-completion/zsh-better-npm-completion.plugin.zsh
