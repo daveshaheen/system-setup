@@ -49,6 +49,7 @@ export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:$GOROOT/bin:$GOPATH/bin:/usr/local/opt/ruby/bin:/usr/bin:/bin:/usr/sbin:/sbin:
 export PGDATA=/usr/local/var/postgres
 export VISUAL=vim
+export EVENT_NOKQUEUE=1
 # export DYLD_INSERT_LIBRARIES=$HOME/source/hoard/src/libhoard.dylib
 
 source $HOME/.config/zsh/private.zsh
