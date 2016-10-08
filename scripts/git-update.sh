@@ -17,7 +17,7 @@ do
 					git reset --hard
 					git clean -df
 					git merge --ff-only
-					git submodule update --init --recursive
+					git submodule update --recursive
 				fi
 				echo ""
 			fi
