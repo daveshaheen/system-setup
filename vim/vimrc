@@ -123,9 +123,6 @@ set autoread
 " set backspace to work how you'd normally expect it to
 set backspace=indent,eol,start
 
-" fix clipboard
-set clipboard=unnamed
-
 " display settings
 set colorcolumn=81 " highlight the listed column
 set cursorline     " highlight the line the cursor is on
