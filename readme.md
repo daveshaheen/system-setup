@@ -1,7 +1,5 @@
 # System Setup
 
---------------
-
 ## OSX
 
 ### Install [homebrew](http://brew.sh/)
@@ -94,8 +92,6 @@
 
 
 ## LICENSE
-
-----------
 
   Copyright 2016 Dave Shaheen
 
