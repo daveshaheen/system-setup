@@ -49,6 +49,12 @@
     ln -fsv ~/workspace/src/github.com/lukechilds/zsh-nvm ~/.config/zsh/zsh-nvm
     ln -fsv ~/workspace/src/github.com/lukechilds/zsh-better-npm-completion ~/.config/zsh/zsh-better-npm-completion
 
+### Install [eslint](http://eslint.org/)
+
+    npm install -g \
+      eslint eslint-config-standard eslint-config-standard-react \
+      eslint-plugin-json eslint-plugin-promise eslint-plugin-react eslint-plugin-standard
+
 ### Install base16 colors
 
 [base16-iterm2](https://github.com/chriskempson/base16-iterm2.git)
