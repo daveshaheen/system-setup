@@ -28,11 +28,8 @@ zstyle ':prezto:load' pmodule \
   'terminal' \
   'editor' \
   'history' \
-  'history-substring-search' \
   'directory' \
   'spectrum' \
-  'utility' \
-  'completion' \
   'homebrew' \
   'osx' \
   'ruby' \
@@ -41,9 +38,12 @@ zstyle ':prezto:load' pmodule \
   'node' \
   'python' \
   'haskell' \
-  'syntax-highlighting' \
   'tmux' \
   'utility' \
+  'completion' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'autosuggestions' \
   'prompt'
 
 #
