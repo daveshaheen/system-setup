@@ -6,6 +6,7 @@ ln -fsv ~/workspace/src/github.com/daveshaheen/system-setup/prezto/zpreztorc ~/.
 ln -fsv ~/workspace/src/github.com/daveshaheen/system-setup/prezto/zshrc ~/.zshrc
 ln -fsv ~/workspace/src/github.com/daveshaheen/system-setup/tmux/tmux.conf ~/.tmux.conf
 ln -fsv ~/workspace/src/github.com/daveshaheen/system-setup/vim/vimrc ~/.vimrc
+ln -fsv ~/workspace/src/github.com/daveshaheen/system-setup/tern/tern-config ~/.tern-config
 
 ln -fsv ~/workspace/src/github.com/daveshaheen/system-setup/scripts ~/scripts
 
