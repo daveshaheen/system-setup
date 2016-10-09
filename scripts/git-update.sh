@@ -1,7 +1,7 @@
 #!/bin/bash
 # git-update.sh
 
-for user in ~/Workspace/src/github.com/*
+for user in ~/workspace/src/github.com/*
 do
 	if [[ ! $user =~ $GITHUB_USER_NAME ]]; then
 		for project in $user/*

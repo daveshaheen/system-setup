@@ -23,7 +23,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # Ensure user-installed binaries take precedence
 export ANDROID_HOME=/usr/local/opt/android-sdk
-export BITBUCKET_PATH=$HOME/Workspace/src/bitbucket.org
+export BITBUCKET_PATH=$HOME/workspace/src/bitbucket.org
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://192.168.99.100:2376"
 export DOCKER_CERT_PATH="$HOME/.docker/machine/machines/default"
@@ -33,9 +33,9 @@ export ECLIPSE_HOME=/Applications/Eclipse.app/Contents/Eclipse
 export EDITOR=vim
 export GDK_PIXBUF_MODULEDIR="/usr/local/lib/gdk-pixbuf-2.0/2.10.0/loaders"
 export GITHUB_USER_NAME="daveshaheen"
-export GITHUB_PATH=$HOME/Workspace/src/github.com
+export GITHUB_PATH=$HOME/workspace/src/github.com
 export GOBIN=/usr/local/opt/go/libexec/bin
-export GOPATH=$HOME/Workspace
+export GOPATH=$HOME/workspace
 export GOROOT=/usr/local/opt/go/libexec
 export GOSERVERNAME=daveshaheen
 export HELPDIR=/usr/local/share/zsh/help

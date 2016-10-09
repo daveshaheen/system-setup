@@ -1,29 +1,14 @@
 #!/bin/bash
 
-if [ ! -f ~/.zpreztorc ]; then
-	ln -s $(pwd)/prezto/zpreztorc ~/.zpreztorc
-	echo "linked ~/.zpreztorc"
-else
-	echo "ln: ~/.zpreztorc: file exists; remove and re-run."
-fi
+cd ~/workspace/src/github.com/daveshaheen/system-setup
 
-if [ ! -f ~/.zshrc ]; then
-  ln -s $(pwd)/prezto/zshrc ~/.zshrc
-	echo "linked ~/.zshrc"
-else
-	echo "ln: ~/.zshrc: file exists; remove and re-run."
-fi
+ln -fsv ~/workspace/src/github.com/daveshaheen/system-setup/prezto/zpreztorc ~/.zpreztorc
+ln -fsv ~/workspace/src/github.com/daveshaheen/system-setup/prezto/zshrc ~/.zshrc
+ln -fsv ~/workspace/src/github.com/daveshaheen/system-setup/tmux/tmux.conf ~/.tmux.conf
+ln -fsv ~/workspace/src/github.com/daveshaheen/system-setup/vim/vimrc ~/.vimrc
 
-if [ ! -f ~/.tmux.conf ]; then
-	ln -s $(pwd)/tmux/tmux.conf ~/.tmux.conf
-	echo "linked ~/.tmux.conf"
-else
-	echo "ln: ~/.tmux.conf: file exists; remove and re-run."
-fi
+ln -fsv ~/workspace/src/github.com/daveshaheen/system-setup/scripts ~/scripts
 
-if [ ! -f ~/.vimrc ]; then
-	ln -s $(pwd)/vim/vimrc ~/.vimrc
-	echo "linked ~/.vimrc"
-else
-	echo "ln: ~/.vimrc: file exists; remove and re-run."
-fi
+ln -fsv /Applications/Docker.app/Contents/Resources/etc/docker.zsh-completion ~/.zprezto/modules/completion/external/src/_docker
+ln -fsv /Applications/Docker.app/Contents/Resources/etc/docker-machine.zsh-completion ~/.zprezto/modules/completion/external/src/_docker-machine
+ln -fsv /Applications/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion ~/.zprezto/modules/completion/external/src/_docker-compose
