@@ -49,6 +49,8 @@
     ln -fsv ~/workspace/src/github.com/lukechilds/zsh-nvm ~/.config/zsh/zsh-nvm
     ln -fsv ~/workspace/src/github.com/lukechilds/zsh-better-npm-completion ~/.config/zsh/zsh-better-npm-completion
 
+    nvm install node
+
 ### Install [eslint](http://eslint.org/)
 
     npm install -g \
