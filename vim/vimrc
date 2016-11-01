@@ -86,6 +86,11 @@ Plug 'ensime/ensime-vim'    " scala and java
 Plug 'pangloss/vim-javascript' " javascript
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' } " javascript
 Plug 'mxw/vim-jsx' " jsx
+Plug 'moll/vim-node' " node
+Plug 'groenewege/vim-less' " less
+Plug 'JulesWang/css.vim' " css
+Plug 'hail2u/vim-css3-syntax' " css3
+Plug 'skammer/vim-css-color' " css color hex values
 
 call plug#end()
 
@@ -192,6 +197,7 @@ set omnifunc=syntaxcomplete#Complete
 
 " normal mode leader key mappings
 nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>c :bw!<CR>
 nnoremap <Leader>e :NERDTreeToggle<CR>
 nnoremap <Leader>ev :vs $MYVIMRC<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
@@ -280,7 +286,7 @@ let g:session_autoload = 'no'
 let g:ragtag_global_maps = 1
 
 " polyglot
-let g:polyglot_disabled = ['go', 'javascript', 'jsx']
+let g:polyglot_disabled = ['css', 'go', 'javascript', 'jsx', 'less']
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
@@ -303,6 +309,8 @@ autocmd! BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.is
 
 autocmd! BufWritePost *.js,*.jsx execute "silent !eslint --fix " . bufname("%")
 autocmd! BufWritePost * silent Neomake
+
+autocmd! BufReadPost fugitive://* set bufhidden=delete
 
 autocmd! CursorMovedI *  if pumvisible() == 0|silent! pclose|endif
 autocmd! InsertLeave * if pumvisible() == 0|silent! pclose|endif
