@@ -1,8 +1,9 @@
 #!/bin/bash
 # all-update.sh
 
-~/Scripts/brew-update.sh && \
-	~/Scripts/cask-remove-old-versions.sh && \
-	~/Scripts/git-update.sh && \
-	~/Scripts/npm-outdated-update.sh && \
-	~/Scripts/gem-outdated-update.sh
+~/scripts/brew-update.sh && \
+	~/scripts/cask-remove-old-versions.sh && \
+	~/scripts/git-update.sh && \
+	~/scripts/npm-outdated-update.sh && \
+	~/scripts/gem-outdated-update.sh && \
+	~/scripts/pip-update.sh
