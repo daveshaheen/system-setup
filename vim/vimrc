@@ -83,6 +83,8 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'sheerun/vim-polyglot' " 70+ language packages
 Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' } " golang
 Plug 'ensime/ensime-vim'    " scala and java
+Plug 'derekwyatt/vim-scala' " scala
+Plug 'gre/play2vim' " play framework
 Plug 'pangloss/vim-javascript' " javascript
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' } " javascript
 Plug 'mxw/vim-jsx' " jsx
@@ -201,16 +203,18 @@ nnoremap <Leader>c :bw!<CR>
 nnoremap <Leader>e :NERDTreeToggle<CR>
 nnoremap <Leader>ev :vs $MYVIMRC<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
-nnoremap <Leader>jf :silent !eslint --fix %<CR>
 nnoremap <Leader>l :set list!<CR>
 nnoremap <Leader>nm :Neomake<CR>
 nnoremap <Leader>pi :PlugInstall<CR>
 nnoremap <Leader>pu :PlugUpdate<CR>
 nnoremap <Leader>pc :PlugClean<CR>
 nnoremap <Leader>sv :so $MYVIMRC<CR>
-nnoremap <Leader>t :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nnoremap <Leader>tr :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <Leader>w :set wrap!<CR>
 
+autocmd! FileType javascript,javascript.jsx nnoremap <LocalLeader>jf :silent !eslint --fix %<CR>
+autocmd! FileType scala nnoremap <LocalLeader>sd :EnDeclaration<CR>
+autocmd! FileType scala nnoremap <LocalLeader>st :EnTypeCheck<CR>
 
 " global settings
 
@@ -242,6 +246,20 @@ let g:easytags_async = 1
 
 " eclim
 let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimCValidate = 0
+let g:EclimCssValidate = 0
+let g:EclimHtmlValidate = 0
+let g:EclimGroovyValidate = 1
+let g:EclimJavaValidate = 1
+let g:EclimJavascriptValidate = 0
+let g:EclimPhpValidate = 0
+let g:EclimPhpHtmlValidate = 0
+let g:EclimPythonValidate = 0
+let g:EclimRubyValidate = 0
+let g:EclimScalaValidate = 1
+let g:EclimXmlValidate = 0
+let g:EclimDtdValidate = 0
+let g:EclimXsdValidate = 0
 
 " NERDTree
 let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]', 'target$[[dir]]']
@@ -286,7 +304,7 @@ let g:session_autoload = 'no'
 let g:ragtag_global_maps = 1
 
 " polyglot
-let g:polyglot_disabled = ['css', 'go', 'javascript', 'jsx', 'less']
+let g:polyglot_disabled = ['css', 'go', 'javascript', 'jsx', 'less', 'scala']
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
@@ -308,6 +326,7 @@ let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
 autocmd! BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 autocmd! BufWritePost *.js,*.jsx execute "silent !eslint --fix " . bufname("%")
+autocmd! BufWritePost *.scala silent :EnTypeCheck
 autocmd! BufWritePost * silent Neomake
 
 autocmd! BufReadPost fugitive://* set bufhidden=delete
