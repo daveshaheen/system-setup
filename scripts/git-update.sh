@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo ""; echo "git update..."; echo ""
+
 for user in $HOME/workspace/src/github.com/*
 do
   if [[ ! $user =~ $GITHUB_USER_NAME ]]; then
