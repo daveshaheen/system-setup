@@ -263,7 +263,7 @@ let g:EclimXsdValidate = 0
 
 " NERDTree
 let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]', 'target$[[dir]]']
-let NERDTreeWinSize = 50
+let NERDTreeWinSize = 40
 
 " Neomake
 let g:neomake_open_list = 2
