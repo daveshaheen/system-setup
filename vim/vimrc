@@ -203,13 +203,13 @@ nnoremap <Leader>c :bw!<CR>
 nnoremap <Leader>e :NERDTreeToggle<CR>
 nnoremap <Leader>ev :vs $MYVIMRC<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
-nnoremap <Leader>l :set list!<CR>
 nnoremap <Leader>nm :Neomake<CR>
 nnoremap <Leader>pi :PlugInstall<CR>
 nnoremap <Leader>pu :PlugUpdate<CR>
 nnoremap <Leader>pc :PlugClean<CR>
 nnoremap <Leader>sv :so $MYVIMRC<CR>
 nnoremap <Leader>tr :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nnoremap <Leader>sw :set list!<CR>
 nnoremap <Leader>w :set wrap!<CR>
 
 autocmd! FileType javascript,javascript.jsx nnoremap <LocalLeader>jf :silent !eslint --fix %<CR>
