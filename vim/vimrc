@@ -141,7 +141,7 @@ set expandtab     " use spaces instead of tabs
 set shiftwidth=2  " hitting tab moves 2 spaces
 set tabstop=2     " number of spaces that a tab counts for
 set softtabstop=2 " number of spaces that a tab counts for when editing
-set smarttab      " insert blanks based on sw, tbs, or sts
+set smarttab      " insert blanks based on sw, ts, or sts
 
 " indent settings
 set autoindent " copy indent from current line when starting a new one
