@@ -58,6 +58,7 @@ Plug 'scrooloose/nerdcommenter'
 
 " closers
 Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
 
 " fuzzy finder
 Plug 'ctrlpvim/ctrlp.vim'
@@ -230,6 +231,9 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'base16'
+
+" closetag
+let g:closetag_filenames = "*.html,*.jsx,*.xhtml,*.xml"
 
 " ctrlp
 let g:ctrlp_show_hidden = 0
