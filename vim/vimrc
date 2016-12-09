@@ -219,7 +219,7 @@ nnoremap <Leader>tr :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <Leader>sw :set list!<CR>
 nnoremap <Leader>w :set wrap!<CR>
 
-autocmd! FileType javascript,javascript.jsx nnoremap <LocalLeader>jf :silent !eslint --fix %<CR>
+autocmd! FileType javascript,jsx nnoremap <LocalLeader>jf :silent !eslint --fix %<CR>
 autocmd! FileType scala nnoremap <LocalLeader>sd :EnDeclaration<CR>
 autocmd! FileType scala nnoremap <LocalLeader>st :EnTypeCheck<CR>
 
@@ -341,9 +341,9 @@ let g:go_highlight_methods = 1
 let g:go_highlight_types = 1
 
 " YouCompleteMe (ycm)
-let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
+let g:ycm_min_num_of_chars_for_completion = 1
 
 autocmd! BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
