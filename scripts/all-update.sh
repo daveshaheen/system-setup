@@ -7,4 +7,6 @@
   ~/scripts/gem-outdated-update.sh; \
   ~/scripts/pip-update.sh
 
+echo ""; date
+
 echo ""; echo "Done!"; echo ""
