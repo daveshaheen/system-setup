@@ -83,6 +83,9 @@ Plug 'edkolev/tmuxline.vim'
 " easy toggle for quick fix and location list
 Plug 'Valloric/ListToggle'
 
+" highlight matching tags
+Plug 'Valloric/MatchTagAlways'
+
 " syntax and stuff
 Plug 'sheerun/vim-polyglot' " 70+ language packages
 Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' } " golang
@@ -271,6 +274,14 @@ let g:EclimXsdValidate = 0
 " ListToggle
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
+
+" MatchTagAlways
+let g:mta_filetypes = {
+      \ 'html' : 1,
+      \ 'jsx' : 1,
+      \ 'xhtml' : 1,
+      \ 'xml' : 1,
+      \}
 
 " NERDTree
 let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]', 'target$[[dir]]']
