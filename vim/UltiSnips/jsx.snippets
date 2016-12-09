@@ -1,0 +1,18 @@
+snippet reacc "export default React.createClass" b!
+import React from 'react'
+
+export default React.createClass({
+	propTypes: {$1 },
+	getDefaultProps () {
+		return {$2 }
+	},
+	getInitialState () {
+		return {$3 }
+	},
+	render () {
+		return (
+			${4:null}
+		)
+	}
+})
+endsnippet

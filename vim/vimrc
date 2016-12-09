@@ -301,10 +301,10 @@ nnoremap <F8> :TagbarToggle<CR>
 let g:tmuxline_powerline_separators = 1
 
 " ultisnips
+let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsExpandTrigger = "<nop>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-let g:UltiSnipsExpandTrigger = "<nop>"
 let g:ulti_expand_or_jump_res = 0
 
 " vim-indent-guides
