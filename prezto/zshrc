@@ -44,8 +44,6 @@ export KEYTIMEOUT=2
 export LC_ALL=en_US.UTF-8
 export MONO_GAC_PREFIX="/usr/local"
 export MONO_MANAGED_WATCHER=disabled
-export NODE_PATH='/usr/local/lib/jsctags'
-export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:$GOROOT/bin:$GOPATH/bin:/usr/local/opt/ruby/bin:/usr/bin:/bin:/usr/sbin:/sbin:
 export PGDATA=/usr/local/var/postgres
 export VISUAL=vim
@@ -65,10 +63,6 @@ unalias gl
 alias gl="git log --pretty=format:\"%C(Blue)%an <%ae> %C(reset)%cd %C(auto)%h%d %b%s\" --date=iso --graph --all"
 
 alias guard="bundle exec guard"
-
-# tabtab source for yo package
-# uninstall by removing these lines or running `tabtab uninstall yo`
-[[ -f /usr/local/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh ]] && . /usr/local/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh
 
 source $HOME/.bin/tmuxinator.zsh
 source $HOME/.config/zsh/zsh-nvm/zsh-nvm.plugin.zsh
