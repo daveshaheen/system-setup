@@ -71,6 +71,8 @@ source $HOME/.config/zsh/zsh-better-npm-completion/zsh-better-npm-completion.plu
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 
+ssh-add -A &> /dev/null
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 tic $HOME/.config/term/$TERM.ti
