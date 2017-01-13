@@ -99,7 +99,7 @@ Plug 'moll/vim-node' " node
 Plug 'groenewege/vim-less' " less
 Plug 'JulesWang/css.vim' " css
 Plug 'hail2u/vim-css3-syntax' " css3
-Plug 'skammer/vim-css-color' " css color hex values
+Plug 'ap/vim-css-color' " css color hex values
 
 call plug#end()
 
