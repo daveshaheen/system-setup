@@ -22,7 +22,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Ensure user-installed binaries take precedence
-export ANDROID_HOME=/usr/local/opt/android-sdk
+export ANDROID_HOME=~/Library/Android/sdk
 export BITBUCKET_PATH=$HOME/workspace/src/bitbucket.org
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://192.168.99.100:2376"
@@ -45,6 +45,8 @@ export LC_ALL=en_US.UTF-8
 export MONO_GAC_PREFIX="/usr/local"
 export MONO_MANAGED_WATCHER=disabled
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:$GOROOT/bin:$GOPATH/bin:/usr/local/opt/ruby/bin:/usr/bin:/bin:/usr/sbin:/sbin:
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PGDATA=/usr/local/var/postgres
 export VISUAL=vim
 export EVENT_NOKQUEUE=1
