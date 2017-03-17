@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo ""; echo "cask cleanup..."
-
 set i = 0
 
 for folder in /usr/local/Caskroom/*

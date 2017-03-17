@@ -6,7 +6,5 @@ echo ""; echo "brew update..."; \
   brew upgrade; \
   echo ""; echo "brew cleanup..."; \
   brew cleanup; \
-  echo ""; echo "cask install..."; \
-  brew cask install $(brew cask list); \
   echo ""; echo "cask cleanup..."; \
   brew cask cleanup; \
