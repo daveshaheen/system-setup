@@ -5,6 +5,7 @@
   ~/scripts/git-update.sh; \
   ~/scripts/npm-outdated-update.sh; \
   ~/scripts/gem-outdated-update.sh; \
+  ~/scripts/gem-cleanup.sh; \
   ~/scripts/pip-update.sh
 
 echo ""; date
