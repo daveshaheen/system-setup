@@ -13,9 +13,13 @@
       ack git go mercurial neovim python python3 reattach-to-user-namespace \
       ruby sbt scala tmux the_silver_searcher vim wget zsh
 
+  See full list of brews, [brew-list.txt](/brew-list.txt)
+
     cask install \
       appcleaner docker dnscrypt eclipse-java filezilla flux iterm2 java \
       jumpcut murus shiftit sourcetree vagrant virtualbox xquartz
+
+  See full list of casks, [cask-list.txt](/cask-list.txt)
 
     zsh
 
@@ -57,9 +61,11 @@
       eslint eslint-config-standard eslint-config-standard-react \
       eslint-plugin-json eslint-plugin-promise eslint-plugin-react eslint-plugin-standard
 
+  See full list of npm packages, [npm-list.txt](/npm-list.txt)
+
 ### Install base16 colors
 
-[base16-iterm2](https://github.com/chriskempson/base16-iterm2.git)
+[base16-iterm2](https://github.com/chriskempson/base16-iterm2.git)  
 [base16-shell](https://github.com/chriskempson/base16-shell.git)
 
     mkdir -p ~/workspace/src/github.com/chriskempson
@@ -85,6 +91,12 @@
 ### Install [tmuxinator](https://github.com/tmuxinator/tmuxinator)
 
     gem install tmuxinator
+
+### Install [neovim](https://neovim.io/) dependencies
+
+    pip2 install neovim
+    pip3 install neovim
+    gem install neovim
 
 ### Install [dotfiles](https://github.com/daveshaheen/system-setup)
 
