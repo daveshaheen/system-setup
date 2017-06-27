@@ -62,7 +62,7 @@ bindkey -v
 autoload run-help
 
 unalias gl
-alias gl="git log --pretty=format:\"%C(Blue)%an <%ae> %C(reset)%cd %C(auto)%h%d %b%s\" --date=iso --graph --all"
+alias gl="git log --pretty=format:\"%C(Blue)%an <%ae> %C(reset)%cd %C(auto)%h%d %s\" --date=iso --graph"
 
 alias guard="bundle exec guard"
 
