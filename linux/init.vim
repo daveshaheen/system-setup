@@ -1,0 +1,364 @@
+" functions
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --all
+  endif
+endfunction
+
+function! ExpandSnippetOrCarriageReturn()
+  let snippet = UltiSnips#ExpandSnippetOrJump()
+  if g:ulti_expand_or_jump_res > 0
+    return snippet
+  else
+    return "\<CR>"
+  endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+
+
+" vim-plug begin loading plugins
+call plug#begin()
+
+" xolox plugins
+Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'  " session
+Plug 'xolox/vim-notes' | Plug 'xolox/vim-misc'    " notes
+Plug 'xolox/vim-easytags' | Plug 'xolox/vim-misc' " easytags
+
+" tpope plugins
+Plug 'tpope/vim-fugitive'    " git wrapper
+Plug 'tpope/vim-ragtag'      " used for tag closing
+Plug 'tpope/vim-repeat'      " allows repeating a plugin map
+Plug 'tpope/vim-surround'    " surroundings
+Plug 'tpope/vim-speeddating' " easily increment dates
+Plug 'tpope/vim-unimpaired'  " handy keymaps
+Plug 'tpope/vim-vinegar'     " netrw enhancer
+
+" file explorer
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" tagbar
+Plug 'majutsushi/tagbar'
+
+" snippets
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" code completion
+Plug 'ervandew/supertab' " for tab completions
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'neomake/neomake'   " linting
+Plug 'mattn/emmet-vim'   " html & css toolkit
+
+" comments
+Plug 'scrooloose/nerdcommenter'
+
+" closers
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
+
+" fuzzy finder
+Plug 'ctrlpvim/ctrlp.vim'
+
+" ack
+Plug 'mileszs/ack.vim'
+
+" colors
+Plug 'chriskempson/base16-vim'
+
+" indent guides
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
+
+" git gutter
+Plug 'airblade/vim-gitgutter'
+
+" status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+
+" easy toggle for quick fix and location list
+Plug 'Valloric/ListToggle'
+
+" highlight matching tags
+Plug 'Valloric/MatchTagAlways'
+
+" syntax and stuff
+Plug 'sheerun/vim-polyglot' " 70+ language packages
+Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' } " golang
+Plug 'ensime/ensime-vim'    " scala and java
+Plug 'derekwyatt/vim-scala' " scala
+Plug 'gre/play2vim' " play framework
+Plug 'pangloss/vim-javascript' " javascript
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' } " javascript
+Plug 'mxw/vim-jsx' " jsx
+Plug 'moll/vim-node' " node
+Plug 'groenewege/vim-less' " less
+Plug 'JulesWang/css.vim' " css
+Plug 'hail2u/vim-css3-syntax' " css3
+Plug 'ap/vim-css-color' " css color hex values
+
+call plug#end()
+
+
+" general settings
+
+" highlight group Normal color settings
+highlight Normal ctermfg=7 ctermbg=0 guifg=#d8d8d8 guibg=#181818
+
+" tell vim the 'background' is dark. this doesn't actually set the background
+set background=dark
+
+" set base16colorspace to 256 for chriskempson/base16-vim
+if $TERM !~# "konsole.*"
+	" As a work around for the following bugs in kde4's konsole:
+	"   use the output of 16.colorscheme.rb and don't set base16colorspace.
+	"   base-shell script will not be called
+	" https://github.com/chriskempson/base16-shell/issues/31
+	" https://bugs.kde.org/show_bug.cgi?id=344181
+	let base16colorspace=256
+endif
+
+" if ~/.vimrc_background exists then run the file
+if filereadable(expand("~/.vimrc_background"))
+  source ~/.vimrc_background
+endif
+
+" set colorscheme
+colorscheme base16-default-dark
+
+" :syntax enable => turning on syntax highlighting
+syntax enable
+
+" :filetype on => turns filetype detction on
+" :filetype plugin => on loads plugin files for specific filetypes
+" :filetype indent on => loads indent files for specific filetypes
+filetype plugin indent on
+
+" reload files changed outside of vim
+set autoread
+
+" set backspace to work how you'd normally expect it to
+set backspace=indent,eol,start
+
+" display settings
+set colorcolumn=81 " highlight the listed column
+set cursorline     " highlight the line the cursor is on
+set scrolloff=2    " minimum number of characters above and below the cursor
+set showmatch      " when a bracket is inserted briefly jump to a matching one
+
+" tab settings
+set expandtab     " use spaces instead of tabs
+set shiftwidth=2  " hitting tab moves 2 spaces
+set tabstop=2     " number of spaces that a tab counts for
+set softtabstop=2 " number of spaces that a tab counts for when editing
+set smarttab      " insert blanks based on sw, ts, or sts
+
+" indent settings
+set autoindent " copy indent from current line when starting a new one
+set copyindent " keep source structure when copying
+set shiftround " round indent to multiples of shiftwidth
+
+" fold settings
+set foldenable        " when off all folds are open. when on use foldlevelstart
+set foldcolumn=2      " set fold column width
+set foldmethod=indent " lines with equal indent form a fold
+set foldlevelstart=99 " start with no folds closed
+set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo " open fold on all commands
+
+" number of lines that are remembered
+set history=1000
+
+" search
+set hlsearch   " highlight search results
+set incsearch  " search and highlight while typing
+set ignorecase " ignore case when searching
+set smartcase  " override ignorecase only when a search includes uppercase chars
+
+" wrap
+set linebreak    " wrap long lines when wrap is turned on
+set nowrap       " turn wrap off
+set wrapmargin=0 " number of chars from the right where wrapping starts
+
+" line characters
+set listchars=tab:▸\ ,trail:▝,eol:¬,space:_
+
+" line numbers
+set number         " show line numbers
+set relativenumber " show line number relative to the cursor
+set ruler          " show the line and column number of the cursor position
+
+" toggles paste mode
+set pastetoggle=<F2>
+
+" misc
+set hidden       " keep buffer changes when hidden
+set nobackup     " don't keep a backup
+set nobomb       " no BOM (Byte Order Mark)
+set noerrorbells " no beep
+set nomodeline   " don't use modelines see help
+set noswapfile   " don't keep a swap file. text only kept in memory
+set visualbell   " use a visual bell instead of beeping
+set tags=tags;/  " for ctags
+
+" wild settings
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class
+set wildmode=list:full
+
+" turn on omnifunction
+set omnifunc=syntaxcomplete#Complete
+
+" normal mode leader key mappings
+nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>c :bw!<CR>
+nnoremap <Leader>e :NERDTreeToggle<CR>
+nnoremap <Leader>ev :vs $MYVIMRC<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
+nnoremap <Leader>nm :Neomake<CR>
+nnoremap <Leader>pi :PlugInstall<CR>
+nnoremap <Leader>pu :PlugUpdate<CR>
+nnoremap <Leader>pc :PlugClean<CR>
+nnoremap <Leader>sv :so $MYVIMRC<CR>
+nnoremap <Leader>tr :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nnoremap <Leader>sw :set list!<CR>
+nnoremap <Leader>w :set wrap!<CR>
+
+autocmd! FileType javascript,jsx nnoremap <LocalLeader>jf :silent !eslint --fix %<CR>
+autocmd! FileType scala nnoremap <LocalLeader>sd :EnDeclaration<CR>
+autocmd! FileType scala nnoremap <LocalLeader>st :EnTypeCheck<CR>
+
+" global settings
+
+" ack (the_silver_searcher)
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'base16'
+
+" closetag
+let g:closetag_filenames = "*.html,*.jsx,*.xhtml,*.xml"
+
+" ctrlp
+let g:ctrlp_show_hidden = 0
+let g:ctrlp_follow_symlinks = 2
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPLastMode'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/](\.(git|hg|svn))|(node_modules|bower_components)|(target|bin)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ 'link': '',
+      \ }
+let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
+
+" easytags
+let g:easytags_async = 1
+
+" eclim
+let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimCValidate = 0
+let g:EclimCssValidate = 0
+let g:EclimHtmlValidate = 0
+let g:EclimGroovyValidate = 1
+let g:EclimJavaValidate = 1
+let g:EclimJavascriptValidate = 0
+let g:EclimPhpValidate = 0
+let g:EclimPhpHtmlValidate = 0
+let g:EclimPythonValidate = 0
+let g:EclimRubyValidate = 0
+let g:EclimScalaValidate = 1
+let g:EclimXmlValidate = 0
+let g:EclimDtdValidate = 0
+let g:EclimXsdValidate = 0
+
+" ListToggle
+let g:lt_location_list_toggle_map = '<leader>l'
+let g:lt_quickfix_list_toggle_map = '<leader>q'
+
+" MatchTagAlways
+let g:mta_filetypes = {
+      \ 'html' : 1,
+      \ 'jsx' : 1,
+      \ 'xhtml' : 1,
+      \ 'xml' : 1,
+      \}
+
+" NERDTree
+let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]', 'target$[[dir]]']
+let NERDTreeWinSize = 40
+
+" Neomake
+let g:neomake_open_list = 2
+let g:neomake_verbose = 1
+
+" supertab
+let g:SuperTabDefaultCompletionType = '<tab>'
+
+" tagbar
+nnoremap <F8> :TagbarToggle<CR>
+
+" tmuxline
+let g:tmuxline_powerline_separators = 1
+
+" ultisnips
+let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:ulti_expand_or_jump_res = 0
+
+" vim-indent-guides
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_color_change_percent = 5
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+highlight IndentGuidesEven ctermbg=236
+
+" vim-gitgutter
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+
+" vim-session
+let g:session_autosave = 'yes'
+let g:session_autoload = 'no'
+
+" vim-ragtag
+let g:ragtag_global_maps = 1
+
+" polyglot
+let g:polyglot_disabled = ['css', 'go', 'javascript', 'jsx', 'less', 'scala']
+
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+
+" vim-go
+let g:go_auto_type_info = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_types = 1
+
+" YouCompleteMe (ycm)
+let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
+let g:ycm_min_num_of_chars_for_completion = 1
+
+autocmd! BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+autocmd! BufWritePost *.scala silent :EnTypeCheck
+autocmd! BufWritePost * silent Neomake
+
+autocmd! BufReadPost fugitive://* set bufhidden=delete
+
+autocmd! CursorMovedI *  if pumvisible() == 0|silent! pclose|endif
+autocmd! InsertLeave * if pumvisible() == 0|silent! pclose|endif
