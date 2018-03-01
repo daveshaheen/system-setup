@@ -20,22 +20,30 @@ unalias gb
 unalias gl
 unalias gld
 unalias glg
+unalias gwr
 
 alias cls=clear
+
 alias ga='git add --verbose'
 alias gae='git add --verbose --edit'
 alias gai='git add --verbose --interactive'
 alias gap='git add --verbose --patch'
 alias gau='git add --verbose --update'
+
 alias gb='git branch --verbose --verbose'
+
 alias gfu='git remote --verbose update --prune'
-alias gfx='git fetch --all --tags --prune && git checkout develop --quiet && git branch | grep -v "*" | awk "{print $1":"$1}" | xargs -L1 git fetch origin & git pull && git branch -vv | grep gone | awk "{print $1}" | xargs -L1 -r git branch -d'
-alias gl='git log --pretty=format:"%C(4)%aN %C(3)%ar %C(2)%h%C(1)%d %C(7)%<(60,trunc)%s"'
-alias gla='git log --pretty=format:"%C(4)%aN %C(3)%ar %C(2)%h%C(1)%d %C(7)%<(60,trunc)%s" --all'
-alias glag='git log --pretty=format:"%C(4)%aN %C(3)%ar %C(2)%h%C(1)%d %C(7)%<(60,trunc)%s" --all --graph'
-alias gld='git log --pretty=format:"%C(4)%aN %C(3)%ar %C(2)%h%C(1)%d %C(7)%<(60,trunc)%s" --no-merges --first-parent'
-alias gldp='git log --pretty=format:"%C(4)%aN %C(3)%ar %C(2)%h%C(1)%d %C(7)%<(60,trunc)%s" --no-merges --first-parent --patch'
-alias glg='git log --pretty=format:"%C(4)%aN %C(3)%ar %C(2)%h%C(1)%d %C(7)%<(60,trunc)%s" --graph'
+alias gfx='git fetch --all --tags --prune &&
+           git checkout develop --quiet &&
+           git branch | grep -v "*" | awk "{print $1":"$1}" | xargs -L1 git fetch origin & git pull &&
+           git branch -vv | grep gone | awk "{print $1}" | xargs -L1 -r git branch -d'
+
+alias gl='git log --pretty=format:"%C(blue)%aN %C(green)%ar %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s"'
+alias gla='git log --pretty=format:"%C(blue)%aN %C(green)%ar %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s" --all'
+alias glag='git log --pretty=format:"%C(blue)%aN %C(green)%ar %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s" --all --graph'
+alias gld='git log --pretty=format:"%C(blue)%aN %C(green)%ar %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s" --no-merges --first-parent'
+alias gldp='git log --pretty=format:"%C(blue)%aN %C(green)%ar %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s" --no-merges --first-parent --patch'
+alias glg='git log --pretty=format:"%C(blue)%aN %C(green)%ar %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s" --graph'
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
   ssh-agent > ~/.ssh-agent
@@ -43,3 +51,5 @@ fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
   eval "$(<~/.ssh-agent)"
 fi
+
+source $HOME/.profile-private
