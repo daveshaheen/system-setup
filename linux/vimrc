@@ -106,6 +106,8 @@ call plug#end()
 
 
 " general settings
+set nocompatible
+set encoding=utf-8
 
 " highlight group Normal color settings
 highlight Normal ctermfg=1 ctermbg=0 guifg=#d8d8d8 guibg=#181818
@@ -123,6 +125,7 @@ if $TERM !~# "konsole.*"
 	let base16colorspace=256
 endif
 
+" if ~/.vimrc_background exists then run the file
 if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
@@ -191,9 +194,6 @@ set number         " show line numbers
 set relativenumber " show line number relative to the cursor
 set ruler          " show the line and column number of the cursor position
 
-" toggles paste mode
-set pastetoggle=<F2>
-
 " misc
 set hidden       " keep buffer changes when hidden
 set nobackup     " don't keep a backup
@@ -201,9 +201,11 @@ set nobomb       " no BOM (Byte Order Mark)
 set noerrorbells " no beep
 set nomodeline   " don't use modelines see help
 set noswapfile   " don't keep a swap file. text only kept in memory
-set spell        " enable spell checking
 set visualbell   " use a visual bell instead of beeping
 set tags=tags;/  " for ctags
+
+set spelllang=en_us " spell check english us
+set spell           " enable spell checking
 
 " wild settings
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class
@@ -212,11 +214,20 @@ set wildmode=list:full
 " turn on omnifunction
 set omnifunc=syntaxcomplete#Complete
 
+" toggles paste mode
+set pastetoggle=<F2>
+
+" function key mappings
+nnoremap <F6> :set spell!<CR>
+nnoremap <F7> :NERDTreeToggle<CR>
+nnoremap <F8> :TagbarToggle<CR>
+
 " normal mode leader key mappings
 nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>b :set nobomb<CR>
 nnoremap <Leader>c :bw!<CR>
-nnoremap <Leader>e :NERDTreeToggle<CR>
 nnoremap <Leader>ev :vs $MYVIMRC<CR>
+nnoremap <Leader>e :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
 nnoremap <Leader>nm :Neomake<CR>
 nnoremap <Leader>pi :PlugInstall<CR>
@@ -227,12 +238,16 @@ nnoremap <Leader>tr :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <Leader>sw :set list!<CR>
 nnoremap <Leader>w :set wrap!<CR>
 
+autocmd! FileType vim nnoremap <F1> "9yiw :vert h <C-R>9<CR>
+autocmd! FileType html nnoremap <LocalLeader>hf :%!tidy -q -i --show-errors 0<CR>
+autocmd! FileType json nnoremap <LocalLeader>jf :silent %!python -m json.tool<CR>
 autocmd! FileType javascript,jsx nnoremap <LocalLeader>jf :silent !eslint --fix %<CR>
 autocmd! FileType scala nnoremap <LocalLeader>sd :EnDeclaration<CR>
 autocmd! FileType scala nnoremap <LocalLeader>st :EnTypeCheck<CR>
 
 
-" global settings
+" plugin settings
+
 
 " ack (the_silver_searcher)
 if executable('ag')
@@ -281,8 +296,8 @@ let g:EclimDtdValidate = 0
 let g:EclimXsdValidate = 0
 
 " ListToggle
-let g:lt_location_list_toggle_map = '<leader>l'
-let g:lt_quickfix_list_toggle_map = '<leader>q'
+let g:lt_location_list_toggle_map = '<Leader>l'
+let g:lt_quickfix_list_toggle_map = '<Leader>q'
 
 " MatchTagAlways
 let g:mta_filetypes = {'html':1, 'jsx':1, 'xhtml':1, 'xml':1}
@@ -297,9 +312,6 @@ let g:neomake_verbose = 1
 
 " supertab
 let g:SuperTabDefaultCompletionType = '<tab>'
-
-" tagbar
-nnoremap <F8> :TagbarToggle<CR>
 
 " tmuxline
 let g:tmuxline_powerline_separators = 1
@@ -316,7 +328,8 @@ let g:indent_guides_auto_colors = 0
 let g:indent_guides_color_change_percent = 5
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-highlight IndentGuidesEven ctermbg=236
+highlight IndentGuidesEven guibg=#282828 ctermbg=0
+highlight IndentGuidesOdd guibg=#181818 ctermbg=1
 
 " vim-gitgutter
 let g:gitgutter_realtime = 0
@@ -347,7 +360,6 @@ let g:go_highlight_types = 1
 " Yggdroot/indentLine'
 let g:loaded_indentLine = 1
 let g:indentLine_showFirstIndentLevel = 1
-
 
 " YouCompleteMe (ycm)
 let g:ycm_key_list_select_completion = ['<tab>', '<Down>']

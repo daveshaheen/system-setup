@@ -95,6 +95,8 @@ Plug 'derekwyatt/vim-scala' " scala
 Plug 'gre/play2vim' " play framework
 Plug 'pangloss/vim-javascript' " javascript
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' } " javascript
+Plug 'mxw/vim-jsx' " jsx
+Plug 'moll/vim-node' " node
 Plug 'groenewege/vim-less' " less
 Plug 'JulesWang/css.vim' " css
 Plug 'hail2u/vim-css3-syntax' " css3
@@ -110,7 +112,7 @@ set encoding=utf-8
 " highlight group Normal color settings
 highlight Normal ctermfg=10 ctermbg=0 guifg=#353b45 guibg=#282c34
 
-"c tell vim the 'background' is dark. this doesn't actually set the background
+" tell vim the 'background' is dark. this doesn't actually set the background
 set background=dark
 
 " set base16colorspace to 256 for chriskempson/base16-vim
@@ -135,13 +137,13 @@ else
   nnoremap <Char-0x07F> <BS>
 endif
 
-" set colorscheme
-colorscheme base16-onedark
-
 " if ~/.vimrc_background exists then run the file
 if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
+
+" set colorscheme
+colorscheme base16-onedark
 
 " :syntax enable => turning on syntax highlighting
 syntax enable
@@ -214,8 +216,8 @@ set noswapfile   " don't keep a swap file. text only kept in memory
 set visualbell   " use a visual bell instead of beeping
 set tags=tags;/  " for ctags
 
-set spelllang=en_us " spell checking
-set spell
+set spelllang=en_us " spell check english us
+set spell           " enable spell checking
 
 " wild settings
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class
@@ -226,7 +228,6 @@ set omnifunc=syntaxcomplete#Complete
 
 " toggles paste mode
 set pastetoggle=<F2>
-
 
 " function key mappings
 nnoremap <F6> :set spell!<CR>
@@ -311,12 +312,7 @@ let g:lt_location_list_toggle_map = '<Leader>l'
 let g:lt_quickfix_list_toggle_map = '<Leader>q'
 
 " MatchTagAlways
-let g:mta_filetypes = {
-      \ 'html' : 1,
-      \ 'jsx' : 1,
-      \ 'xhtml' : 1,
-      \ 'xml' : 1,
-      \}
+let g:mta_filetypes = {'html':1, 'jsx':1, 'xhtml':1, 'xml':1}
 
 " NERDTree
 let NERDTreeIgnore = ['node_modules$[[dir]]', 'bin$[[dir]]', 'target$[[dir]]']
@@ -372,6 +368,10 @@ let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_types = 1
+
+" Yggdroot/indentLine'
+let g:loaded_indentLine = 1
+let g:indentLine_showFirstIndentLevel = 1
 
 " YouCompleteMe (ycm)
 let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
