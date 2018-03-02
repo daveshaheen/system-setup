@@ -1,0 +1,1 @@
+@git fetch --all --tags --prune --quiet && git checkout develop --quiet && git branch -vv | grep -v -e "gone\]" -e "[*]" -e "dshaheen" | awk "{print $1"":""$1}" | xargs -L1 git fetch origin & git pull --quiet && git branch -vv | grep "gone\]" | awk "{print $1}" | xargs -L1 -r git branch -d %*
