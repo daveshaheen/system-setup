@@ -17,12 +17,14 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 unalias gb
+unalias gba
 unalias gl
 unalias gld
 unalias glg
-unalias gwr
 
 alias cls=clear
+
+alias dotnet='TERM=xterm dotnet'
 
 alias ga='git add --verbose'
 alias gae='git add --verbose --edit'
@@ -31,6 +33,7 @@ alias gap='git add --verbose --patch'
 alias gau='git add --verbose --update'
 
 alias gb='git branch --verbose --verbose'
+alias gba='git branch --all --verbose --verbose'
 
 alias gfu='git remote --verbose update --prune'
 alias gfx='git fetch --all --tags --prune &&
