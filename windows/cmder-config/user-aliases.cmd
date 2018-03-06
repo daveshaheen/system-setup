@@ -76,14 +76,15 @@ ggw=git grep --word-regexp $*
 ;= Git Index
 gia=git add $*
 gid=git diff --cached $*
+gir=git reset $*
 
 ;= Git Log
-gl=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%cN %C(3)%cr %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" $*
-gla=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%cN %C(3)%cr %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --all $*
-glag=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%cN %C(3)%cr %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --all --graph $*
-gld=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%cN %C(3)%cr %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --no-merges --first-parent $*
-gldp=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%cN %C(3)%cr %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --no-merges --first-parent --patch $*
-glg=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%cN %C(3)%cr %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --graph $*
+gl=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%aD %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" $*
+gla=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%aD %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --all $*
+glag=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%aD %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --all --graph $*
+gld=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%aD %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --no-merges --first-parent $*
+gldp=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%aD %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --no-merges --first-parent --patch $*
+glg=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%aD %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --graph $*
 
 ;= Git Merge
 gm=git merge $*
@@ -115,6 +116,6 @@ gss=git stash save --include-untracked $*
 gwa=git add --verbose $*
 gws=git status $*
 gwd=git diff $*
-gwr=git reset $*
+gwr=git reset --soft $*
 gwc=git clean $*
 
