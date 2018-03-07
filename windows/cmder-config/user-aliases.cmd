@@ -12,7 +12,6 @@ gvim="C:\Program Files (x86)\Vim\vim80\gvim.exe" $*
 history=cat "%CMDER_ROOT%\config\.history"
 ll=ls -l -h --show-control-chars -F --color $*
 ls=ls --show-control-chars -F --color $*
-msbuild="C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe" $*
 nuget="C:\workspace\nuget\nuget.exe" $*
 pip2="C:\Program Files\Anaconda2\Scripts\pip.exe" $*
 pip3="C:\Program Files\Anaconda3\Scripts\pip.exe" $*
