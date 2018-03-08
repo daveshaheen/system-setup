@@ -1,0 +1,11 @@
+# start zplug
+source ~/.zplug/init.zsh
+
+zplug "lukechilds/zsh-nvm"
+zplug "lukechilds/zsh-better-npm-completion", defer:2
+
+zplug load
+# end zplug
+
+source ~/.completions/tmuxinator.zsh
+source ~/.profile
