@@ -259,6 +259,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'base16'
 
+let airline#extensions#tmuxline#snapshot_file = "~/.tmux-statusline-colors.conf"
+
 " closetag
 let g:closetag_filenames = "*.html,*.jsx,*.xhtml,*.xml"
 
