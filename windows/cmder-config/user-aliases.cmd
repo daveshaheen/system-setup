@@ -78,12 +78,13 @@ gid=git diff --cached $*
 gir=git reset $*
 
 ;= Git Log
-gl=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%aD %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" $*
-gla=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%aD %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --all $*
-glag=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%aD %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --all --graph $*
-gld=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%aD %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --no-merges --first-parent $*
-gldp=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%aD %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --no-merges --first-parent --patch $*
-glg=git log --pretty=format:"%C(4)%aN %C(4)%ar %C(3)%aD %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --graph $*
+gl=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%cr %C(3)%ci %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" $*
+gla=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%cr %C(3)%ci %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --all $*
+glag=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%cr %C(3)%ci %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --all --graph $*
+gld=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%cr %C(3)%ci %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --no-merges --first-parent $*
+gldp=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%cr %C(3)%ci %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --no-merges --first-parent --patch $*
+glg=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%cr %C(3)%ci %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --graph $*
+gls=git log --topo-order --stat --pretty=format:"${_git_log_medium_format}" $*
 
 ;= Git Merge
 gm=git merge $*
