@@ -29,26 +29,34 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
-  'editor' \
-  'history' \
+  'archive' \
   'directory' \
-  'spectrum' \
-  'ruby' \
-  'rails' \
+  'docker' \
+  'editor' \
+  'haskell' \
+  'history' \
   'git' \
   'node' \
+  'pacman' \
   'python' \
-  'haskell' \
+  'rails' \
+  'ruby' \
+  'spectrum' \
+  'ssh' \
   'tmux' \
   'utility' \
   'completion' \
   'syntax-highlighting' \
   'history-substring-search' \
+  'autosuggestions' \
   'prompt'
 
 #
 # Autosuggestions
 #
+
+# Set to enable highlighting
+zstyle ':prezto:module:autosuggestions' color 'yes'
 
 # Set the query found color.
 # zstyle ':prezto:module:autosuggestions:color' found ''
