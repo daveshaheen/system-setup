@@ -29,6 +29,7 @@ Plug 'xolox/vim-notes' | Plug 'xolox/vim-misc'    " notes
 Plug 'xolox/vim-easytags' | Plug 'xolox/vim-misc' " easytags
 
 " tpope plugins
+Plug 'tpope/vim-dadbod'      " database interface
 Plug 'tpope/vim-fugitive'    " git wrapper
 Plug 'tpope/vim-ragtag'      " used for tag closing
 Plug 'tpope/vim-repeat'      " allows repeating a plugin map
