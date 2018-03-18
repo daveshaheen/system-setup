@@ -33,8 +33,8 @@ Plug 'tpope/vim-dadbod'      " database interface
 Plug 'tpope/vim-fugitive'    " git wrapper
 Plug 'tpope/vim-ragtag'      " used for tag closing
 Plug 'tpope/vim-repeat'      " allows repeating a plugin map
-Plug 'tpope/vim-surround'    " surroundings
 Plug 'tpope/vim-speeddating' " easily increment dates
+Plug 'tpope/vim-surround'    " surroundings
 Plug 'tpope/vim-unimpaired'  " handy keymaps
 Plug 'tpope/vim-vinegar'     " netrw enhancer
 
