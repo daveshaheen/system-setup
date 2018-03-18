@@ -79,7 +79,7 @@ Plug 'airblade/vim-gitgutter'
 " status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
+Plug 'edkolev/tmuxline.vim', { 'on': [] }
 
 " easy toggle for quick fix and location list
 Plug 'Valloric/ListToggle'
@@ -255,7 +255,7 @@ if executable('ag')
 endif
 
 " airline
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'base16'
 
