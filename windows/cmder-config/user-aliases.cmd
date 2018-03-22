@@ -8,7 +8,6 @@
 clear=cls
 cmderr=cd /d "%CMDER_ROOT%"
 e.=explorer .
-gvim="C:\Program Files (x86)\Vim\vim80\gvim.exe" $*
 history=cat "%CMDER_ROOT%\config\.history"
 ll=ls -l -h --show-control-chars -F --color $*
 ls=ls --show-control-chars -F --color $*
@@ -78,7 +77,7 @@ gid=git diff --cached $*
 gir=git reset $*
 
 ;= Git Log Author
-gl=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" $*
+gl=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --first-parent $*
 gla=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --all $*
 glag=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --all --graph $*
 gld=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --no-merges --first-parent $*
@@ -86,7 +85,7 @@ gldp=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad
 glg=git log --topo-order --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --graph $*
 
 ;= Git Log Committer
-glc=git log --topo-order --pretty=format:"%C(4)%cN %C(7)<%cE> %C(4)%cr %C(3)%cd %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" $*
+glc=git log --topo-order --pretty=format:"%C(4)%cN %C(7)<%cE> %C(4)%cr %C(3)%cd %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --first-parent $*
 glca=git log --topo-order --pretty=format:"%C(4)%cN %C(7)<%cE> %C(4)%cr %C(3)%cd %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --all $*
 glcag=git log --topo-order --pretty=format:"%C(4)%cN %C(7)<%cE> %C(4)%cr %C(3)%cd %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --all --graph $*
 glcd=git log --topo-order --pretty=format:"%C(4)%cN %C(7)<%cE> %C(4)%cr %C(3)%cd %C(2)%h%C(3)%d %C(7)%<(80,trunc)%s" --no-merges --first-parent $*
@@ -127,4 +126,3 @@ gws=git status $*
 gwd=git diff $*
 gwr=git reset --soft $*
 gwc=git clean $*
-
