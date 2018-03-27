@@ -52,9 +52,14 @@ gcSF=git commit --amend --gpg-sign $*
 gco=git checkout $*
 gcs=git show $*
 
-;= Git Diff
-gd=git diff $*
-gdc=git diff --cached $*
+;= Git Data
+gd=git ls-files $*
+gdc=git ls-files --cached $*
+gdx=git ls-files --deleted $*
+gdm=git ls-files --modified $*
+gdu=git ls-files --other --exclude-standard $*
+gdk=git ls-files --killed $*
+gdi=git status --porcelain --short --ignored | sed -n "s/^!! //p" $*
 
 ;= Git Fetch
 gf=git fetch --all --tags --prune $*
