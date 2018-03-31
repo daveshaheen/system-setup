@@ -30,11 +30,11 @@ zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
   'archive' \
-  'directory' \
   'docker' \
   'editor' \
   'haskell' \
   'history' \
+  'directory' \
   'git' \
   'node' \
   'pacman' \
