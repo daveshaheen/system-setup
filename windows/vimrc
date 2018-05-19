@@ -122,7 +122,7 @@ if has("gui_running")
   set lines=40 columns=160
   if has("gui_win32")
     au GUIEnter * simalt ~x
-    set guifont=Consolas:h10:cANSI
+    set guifont=Hack:h9,Consolas:h10
   endif
 else
   set t_Co=256
