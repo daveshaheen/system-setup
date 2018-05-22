@@ -7,7 +7,7 @@
 
 clear=cls
 cmderr=cd /d "%CMDER_ROOT%"
-e.=explorer .
+e=explorer $*
 gvim="C:\Program Files (x86)\Vim\vim80\gvim.exe" $*
 history=cat "%CMDER_ROOT%\config\.history"
 ll=ls -l -h --show-control-chars -F --color $*
