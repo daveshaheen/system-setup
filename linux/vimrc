@@ -205,7 +205,7 @@ set visualbell   " use a visual bell instead of beeping
 set tags=tags;/  " for ctags
 
 set spelllang=en_us " spell check english us
-set spell           " enable spell checking
+"set spell           " enable spell checking
 
 " wild settings
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class
