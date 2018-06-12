@@ -36,19 +36,19 @@ alias gfx="git fetch --all --tags --prune &&
            git branch | grep -v '*' | awk '{print $1}' | xargs -L1 git checkout --quiet && git pull --quiet && git checkout master --quiet &&
            git branch -vv | grep gone | awk '{print $1}' | xargs -L1 -r git branch -d"
 
-alias   gl="git log --pretty=format:'%C(blue)%aN %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --first-parent"
-alias  gla="git log --pretty=format:'%C(blue)%aN %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --all"
-alias glag="git log --pretty=format:'%C(blue)%aN %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --all --graph"
-alias  gld="git log --pretty=format:'%C(blue)%aN %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --no-merges --first-parent"
-alias gldp="git log --pretty=format:'%C(blue)%aN %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --no-merges --first-parent --patch"
-alias  glg="git log --pretty=format:'%C(blue)%aN %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --graph"
+alias   gl="git log --pretty=format:'%C(blue)%aN %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order"
+alias  gla="git log --pretty=format:'%C(blue)%aN %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --all"
+alias glag="git log --pretty=format:'%C(blue)%aN %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --all --graph"
+alias  gld="git log --pretty=format:'%C(blue)%aN %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --no-merges --first-parent"
+alias gldp="git log --pretty=format:'%C(blue)%aN %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --no-merges --first-parent --patch"
+alias  glg="git log --pretty=format:'%C(blue)%aN %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --graph"
 
-alias   glc="git log --pretty=format:'%C(blue)%cN %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --first-parent"
-alias  glca="git log --pretty=format:'%C(blue)%cN %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --all"
-alias glcag="git log --pretty=format:'%C(blue)%cN %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --all --graph"
-alias  glcd="git log --pretty=format:'%C(blue)%cN %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --no-merges --first-parent"
-alias glcdp="git log --pretty=format:'%C(blue)%cN %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --no-merges --first-parent --patch"
-alias  glcg="git log --pretty=format:'%C(blue)%cN %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --graph"
+alias   glc="git log --pretty=format:'%C(blue)%cN %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order"
+alias  glca="git log --pretty=format:'%C(blue)%cN %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --all"
+alias glcag="git log --pretty=format:'%C(blue)%cN %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --all --graph"
+alias  glcd="git log --pretty=format:'%C(blue)%cN %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --no-merges --first-parent"
+alias glcdp="git log --pretty=format:'%C(blue)%cN %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --no-merges --first-parent --patch"
+alias  glcg="git log --pretty=format:'%C(blue)%cN %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --graph"
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
   ssh-agent > ~/.ssh-agent
