@@ -15,6 +15,7 @@ ls=ls --show-control-chars -F --color $*
 nuget="C:\workspace\nuget\nuget.exe" $*
 pip2="C:\Program Files\Anaconda2\Scripts\pip.exe" $*
 pip3="C:\Program Files\Anaconda3\Scripts\pip.exe" $*
+ps=powershell $*
 pwd=cd
 unalias=alias /d $1
 vi=vim $*
