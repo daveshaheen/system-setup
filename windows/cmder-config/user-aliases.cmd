@@ -8,20 +8,14 @@
 clear=cls
 cmderr=cd /d "%CMDER_ROOT%"
 e=explorer $*
-gvim="C:\Program Files (x86)\Vim\vim80\gvim.exe" $*
 history=cat "%CMDER_ROOT%\config\.history"
 ll=ls -l -h --show-control-chars -F --color $*
 ls=ls --show-control-chars -F --color $*
-pip2="C:\Program Files\Anaconda2\Scripts\pip.exe" $*
-pip3="C:\Program Files\Anaconda3\Scripts\pip.exe" $*
 ps=powershell $*
 pwd=cd
 unalias=alias /d $1
-vi=vim $*
-vim="C:\Program Files (x86)\Vim\vim80\vim.exe" $*
-vimdiff="C:\Program Files (x86)\Vim\vim80\vim.exe" -d $*
-vsdevcmd="C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsDevCmd.bat"
-vsmsbuild="C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsMSBuildCmd.bat"
+vi=gvim $*
+vim=gvim $*
 
 ;= Git
 g=git $*
