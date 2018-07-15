@@ -3,6 +3,8 @@ export CHROOT=$HOME/Workspace/chroot
 export EDITOR=vim
 export GDK_DPI_SCALE=1
 export GITHUB_HOME=$HOME/Workspace/code/src/github.com
+export GIT_FORMAT_AUTHOR='%C(blue)%aN <%ae> %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s'
+export GIT_FORMAT_COMMIT='%C(blue)%cN <%ce> %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s'
 export GOPATH=$HOME/Workspace/code
 export PATH=$PATH:$HOME/Workspace/scripts
 export SHELL=/bin/zsh
@@ -36,19 +38,19 @@ alias gfx="git fetch --all --tags --prune &&
            git branch | grep -v '*' | awk '{print $1}' | xargs -L1 git checkout --quiet && git pull --quiet && git checkout master --quiet &&
            git branch -vv | grep gone | awk '{print $1}' | xargs -L1 -r git branch -d"
 
-alias   gl="git log --pretty=format:'%C(blue)%aN <%ae> %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order"
-alias  gla="git log --pretty=format:'%C(blue)%aN <%ae> %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --all"
-alias glag="git log --pretty=format:'%C(blue)%aN <%ae> %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --all --graph"
-alias  gld="git log --pretty=format:'%C(blue)%aN <%ae> %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --no-merges --first-parent"
-alias gldp="git log --pretty=format:'%C(blue)%aN <%ae> %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --no-merges --first-parent --patch"
-alias  glg="git log --pretty=format:'%C(blue)%aN <%ae> %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --graph"
+alias   gl="git log --pretty=format:'$GIT_FORMAT_AUTHOR' --topo-order"
+alias  gla="git log --pretty=format:'$GIT_FORMAT_AUTHOR' --topo-order --all"
+alias glag="git log --pretty=format:'$GIT_FORMAT_AUTHOR' --topo-order --all --graph"
+alias  gld="git log --pretty=format:'$GIT_FORMAT_AUTHOR' --topo-order --no-merges --first-parent"
+alias gldp="git log --pretty=format:'$GIT_FORMAT_AUTHOR' --topo-order --no-merges --first-parent --patch"
+alias  glg="git log --pretty=format:'$GIT_FORMAT_AUTHOR' --topo-order --graph"
 
-alias   glc="git log --pretty=format:'%C(blue)%cN <%ce> %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order"
-alias  glca="git log --pretty=format:'%C(blue)%cN <%ce> %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --all"
-alias glcag="git log --pretty=format:'%C(blue)%cN <%ce> %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --all --graph"
-alias  glcd="git log --pretty=format:'%C(blue)%cN <%ce> %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --no-merges --first-parent"
-alias glcdp="git log --pretty=format:'%C(blue)%cN <%ce> %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --no-merges --first-parent --patch"
-alias  glcg="git log --pretty=format:'%C(blue)%cN <%ce> %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s' --topo-order --graph"
+alias   glc="git log --pretty=format:'$GIT_FORMAT_COMMIT' --topo-order"
+alias  glca="git log --pretty=format:'$GIT_FORMAT_COMMIT' --topo-order --all"
+alias glcag="git log --pretty=format:'$GIT_FORMAT_COMMIT' --topo-order --all --graph"
+alias  glcd="git log --pretty=format:'$GIT_FORMAT_COMMIT' --topo-order --no-merges --first-parent"
+alias glcdp="git log --pretty=format:'$GIT_FORMAT_COMMIT' --topo-order --no-merges --first-parent --patch"
+alias  glcg="git log --pretty=format:'$GIT_FORMAT_COMMIT' --topo-order --graph"
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
   ssh-agent > ~/.ssh-agent
