@@ -4,8 +4,19 @@ source ~/.zplug/init.zsh
 zplug "lukechilds/zsh-nvm"
 zplug "lukechilds/zsh-better-npm-completion", defer:2
 
+zplug "plugins/kubectl", from:oh-my-zsh
+zplug "plugins/helm", from:oh-my-zsh
+
 zplug load
 # end zplug
+
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
+
+if [ $commands[helm] ]; then
+  source <(helm completion zsh)
+fi
 
 source ~/.completions/tmuxinator.zsh
 source ~/.profile
