@@ -6,6 +6,7 @@ zplug "lukechilds/zsh-better-npm-completion", defer:2
 
 zplug "plugins/kubectl", from:oh-my-zsh
 zplug "plugins/helm", from:oh-my-zsh
+zplug "plugins/minikube", from:oh-my-zsh
 
 zplug load
 # end zplug
@@ -16,6 +17,10 @@ fi
 
 if [ $commands[helm] ]; then
   source <(helm completion zsh)
+fi
+
+if [ $commands[minikube] ]; then
+  source <(minikube completion zsh)
 fi
 
 source ~/.completions/tmuxinator.zsh
