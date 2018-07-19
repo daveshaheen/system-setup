@@ -77,22 +77,22 @@ gid=git diff --cached $*
 gir=git reset $*
 
 ;= Git Log Author
-gl=git log --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad %C(2)%h%C(1)%d %C(7)%<(80,trunc)%s" --topo-order $*
-gla=git log --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad %C(2)%h%C(1)%d %C(7)%<(80,trunc)%s" --topo-order --all $*
-glag=git log --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad %C(2)%h%C(1)%d %C(7)%<(80,trunc)%s" --topo-order --all --graph $*
-gld=git log --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad %C(2)%h%C(1)%d %C(7)%<(80,trunc)%s" --topo-order --no-merges --first-parent $*
-gldp=git log --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad %C(2)%h%C(1)%d %C(7)%<(80,trunc)%s" --topo-order --no-merges --first-parent --patch $*
-glg=git log --pretty=format:"%C(4)%aN %C(7)<%aE> %C(4)%ar %C(3)%ad %C(2)%h%C(1)%d %C(7)%<(80,trunc)%s" --topo-order --graph $*
-gls=git log --pretty="format:%C(bold)Commit:%C(reset) %C(2)%H%C(1)%d%n%C(bold)Author:%C(reset) %C(4)%an %C(7)<%ae>%n%C(bold)Date:%C(reset) %C(3)%ai %C(4)(%ar)%C(reset)%n%+B" --topo-order --stat $*
+gl   =git log --pretty=format:%GIT_FORMAT_AUTHOR% --topo-order $*
+gla  =git log --pretty=format:%GIT_FORMAT_AUTHOR% --topo-order --all $*
+glag =git log --pretty=format:%GIT_FORMAT_AUTHOR% --topo-order --all --graph $*
+gld  =git log --pretty=format:%GIT_FORMAT_AUTHOR% --topo-order --no-merges --first-parent $*
+gldp =git log --pretty=format:%GIT_FORMAT_AUTHOR% --topo-order --no-merges --first-parent --patch $*
+glg  =git log --pretty=format:%GIT_FORMAT_AUTHOR% --topo-order --graph $*
+gls  =git log --pretty=format:"%C(bold)Commit:%C(reset) %C(2)%H%C(1)%d%n%C(bold)Author:%C(reset) %C(4)%aN %C(7)<%aE>%n%C(bold)Date:%C(reset) %C(3)%ai %C(4)(%ar)%C(reset)%n%+B" --topo-order --stat $*
 
 ;= Git Log Committer
-glc=git log --pretty=format:"%C(4)%cN %C(7)<%cE> %C(4)%cr %C(3)%cd %C(2)%h%C(1)%d %C(7)%<(80,trunc)%s" --topo-order $*
-glca=git log --pretty=format:"%C(4)%cN %C(7)<%cE> %C(4)%cr %C(3)%cd %C(2)%h%C(1)%d %C(7)%<(80,trunc)%s" --topo-order --all $*
-glcag=git log --pretty=format:"%C(4)%cN %C(7)<%cE> %C(4)%cr %C(3)%cd %C(2)%h%C(1)%d %C(7)%<(80,trunc)%s" --topo-order --all --graph $*
-glcd=git log --pretty=format:"%C(4)%cN %C(7)<%cE> %C(4)%cr %C(3)%cd %C(2)%h%C(1)%d %C(7)%<(80,trunc)%s" --topo-order --no-merges --first-parent $*
-glcdp=git log --pretty=format:"%C(4)%cN %C(7)<%cE> %C(4)%cr %C(3)%cd %C(2)%h%C(1)%d %C(7)%<(80,trunc)%s" --topo-order --no-merges --first-parent --patch $*
-glcg=git log --pretty=format:"%C(4)%cN %C(7)<%cE> %C(4)%cr %C(3)%cd %C(2)%h%C(1)%d %C(7)%<(80,trunc)%s" --topo-order --graph $*
-glcs=git log --pretty="format:%C(bold)Commit:%C(reset) %C(2)%H%C(1)%d%n%C(bold)Committer:%C(reset) %C(4)%cn %C(7)<%ce>%n%C(bold)Date:%C(reset) %C(3)%ci %C(4)(%cr)%C(reset)%n%+B" --topo-order --stat $*
+glc  =git log --pretty=format:%GIT_FORMAT_COMMIT% --topo-order $*
+glca =git log --pretty=format:%GIT_FORMAT_COMMIT% --topo-order --all $*
+glcag=git log --pretty=format:%GIT_FORMAT_COMMIT% --topo-order --all --graph $*
+glcd =git log --pretty=format:%GIT_FORMAT_COMMIT% --topo-order --no-merges --first-parent $*
+glcdp=git log --pretty=format:%GIT_FORMAT_COMMIT% --topo-order --no-merges --first-parent --patch $*
+glcg =git log --pretty=format:%GIT_FORMAT_COMMIT% --topo-order --graph $*
+glcs =git log --pretty=format:"%C(bold)Commit:%C(reset) %C(2)%H%C(1)%d%n%C(bold)Committer:%C(reset) %C(4)%cN %C(7)<%cE>%n%C(bold)Date:%C(reset) %C(3)%ci %C(4)(%cr)%C(reset)%n%+B" --topo-order --stat $*
 
 ;= Git Merge
 gm=git merge $*
