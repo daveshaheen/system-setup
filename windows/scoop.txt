@@ -1,5 +1,7 @@
 7zip
 ag
+azure-cli
+azure-ps
 cacert
 cmake
 cmder
@@ -14,7 +16,13 @@ git
 go
 grep
 kdiff3
+kubectl
 less
+maven
+minikube
+minisign
+mysql-workbench
+neovim
 nodejs
 nuget
 perl
@@ -22,11 +30,12 @@ php
 pshazz
 python
 ruby
+retroarch
 sed
 sudo
 tidy
 vim
 vlc
 vswhere
+winscp
 yarn
-

@@ -1,10 +1,5 @@
+Chocolatey
+ccleaner
 chocolatey
-git
-gitextensions
 hackfont
-handbrake
-kdiff3
-keepass
-neovim
-sdelete
-vim
+RobotoFonts
