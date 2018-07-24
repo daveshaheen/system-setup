@@ -1,5 +1,6 @@
-Chocolatey
 ccleaner
 chocolatey
+FiraCode
 hackfont
+rdcman
 RobotoFonts
