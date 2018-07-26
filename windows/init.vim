@@ -124,7 +124,10 @@ if has("gui_running")
     au GUIEnter * simalt ~x
     set guifont=Hack:h9,Consolas:h10
   endif
-else
+elseif has("nvim")
+  au GUIEnter * simalt ~x
+  set guifont=Hack:h9,Consolas:h10
+else 
   set t_Co=256
   set term=xterm
   set termguicolors
