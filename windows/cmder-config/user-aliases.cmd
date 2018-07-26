@@ -11,6 +11,7 @@ e=explorer $*
 history=cat "%CMDER_ROOT%\config\.history"
 ll=ls -l -h --show-control-chars -F --color $*
 ls=ls --show-control-chars -F --color $*
+nvim=nvim-qt $*
 ps=powershell $*
 pwd=cd
 unalias=alias /d $1
