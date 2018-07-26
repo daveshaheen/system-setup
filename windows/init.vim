@@ -262,6 +262,8 @@ autocmd! FileType scala nnoremap <LocalLeader>st :EnTypeCheck<CR>
 
 
 " plugin settings
+let g:python3_host_prog='C:/Workspace/Applications/Scoop/shims/python.exe'
+let g:python_host_prog='C:/Workspace/Applications/Python-2.7.15/python.exe'
 
 
 " ack (the_silver_searcher)
