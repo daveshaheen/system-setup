@@ -14,7 +14,7 @@ ls=ls --show-control-chars -F --color $*
 nvim=nvim-qt $*
 ps=powershell $*
 pwd=cd
-unalias=alias /d $1
+unalias=alias /d $*
 vi=gvim $*
 vim=gvim $*
 
