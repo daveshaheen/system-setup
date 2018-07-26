@@ -241,14 +241,14 @@ nnoremap <F8> :TagbarToggle<CR>
 nnoremap <Leader>a :Ack!<Space>
 nnoremap <Leader>b :set nobomb<CR>
 nnoremap <Leader>c :bw!<CR>
-nnoremap <Leader>ev :vs ~/.vimrc<CR>
+nnoremap <Leader>ev :vs ~/AppData/Local/nvim/init.vim<CR>
 nnoremap <Leader>e :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
 nnoremap <Leader>nm :Neomake<CR>
 nnoremap <Leader>pc :PlugClean<CR>
 nnoremap <Leader>pi :PlugInstall<CR>
 nnoremap <Leader>pu :PlugUpdate<CR>
-nnoremap <Leader>sv :so ~/.vimrc<CR>
+nnoremap <Leader>sv :so ~/AppData/Local/nvim/init.vim<CR>
 nnoremap <Leader>sw :set list!<CR>
 nnoremap <Leader>tr :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <Leader>w :set wrap!<CR>
