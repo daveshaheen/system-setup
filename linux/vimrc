@@ -89,7 +89,7 @@ Plug 'Valloric/MatchTagAlways'
 
 " syntax and stuff
 Plug 'sheerun/vim-polyglot' " 70+ language packages
-Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' } " golang
+Plug 'fatih/vim-go', { 'tag': 'v1.9', 'do': ':GoInstallBinaries' } " golang
 Plug 'ensime/ensime-vim'    " scala and java
 Plug 'derekwyatt/vim-scala' " scala
 Plug 'gre/play2vim' " play framework
