@@ -1,2 +1,5 @@
 set number
 set relativenumber
+set surround
+
+map \r :action ReformatCode<CR>
