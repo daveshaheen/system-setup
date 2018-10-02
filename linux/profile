@@ -1,5 +1,6 @@
 export BITBUCKET_HOME=$HOME/Workspace/code/src/bitbucket.org
-export CHROOT=$HOME/Workspace/chroot
+export CHROOT=/var/lib/aurbuild/x86_64
+export DOTNET_ROOT=/opt/dotnet
 export EDITOR=vim
 export ELM_SCALE=1
 export GDK_DPI_SCALE=1
@@ -8,7 +9,8 @@ export GITHUB_HOME=$HOME/Workspace/code/src/github.com
 export GIT_FORMAT_AUTHOR='%C(blue)%aN <%ae> %C(green)%ar %C(magenta)%ad %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s'
 export GIT_FORMAT_COMMIT='%C(blue)%cN <%ce> %C(green)%cr %C(magenta)%cd %C(yellow)%h%C(auto)%d %C(#585858)%<(80,trunc)%s'
 export GOPATH=$HOME/Workspace/code
-export PATH=$PATH:$HOME/Workspace/scripts
+export PATH="$PATH:$HOME/Workspace/scripts"
+export PATH="$PATH:/home/dave/.dotnet/tools"
 export PLASMA_USE_QT_SCALING=1
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=1
@@ -26,7 +28,7 @@ unalias glg
 
 alias cls=clear
 
-alias dotnet='TERM=xterm dotnet'
+#alias dotnet='TERM=xterm dotnet' # https://github.com/dotnet/sdk/issues/1916
 
 alias  ga="git add --verbose"
 alias gae="git add --verbose --edit"
