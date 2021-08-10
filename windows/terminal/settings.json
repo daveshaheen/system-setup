@@ -5,6 +5,8 @@
     "defaultProfile": "{f398acec-b402-461a-890c-b6f8d8509cfd}",
     "initialCols": 240,
     "initialRows": 60,
+    "initialPosition": "2,8",
+    "startupActions": "; wt -w 0 nt -d C:\\Workspace\\Code --title Code",
     "profiles": {
         "defaults": {
             "acrylicOpacity": 1.00,
@@ -13,7 +15,7 @@
             "fontSize": 9,
             "startingDirectory": "%USERPROFILE%",
             "suppressApplicationTitle": false,
-            "tabTitle": null,
+            "tabTitle": "Home",
             "useAcrylic": true
         },
         "keybindings": [
